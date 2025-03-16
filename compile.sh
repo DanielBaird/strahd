@@ -7,7 +7,7 @@ style="${2-sessionnotes}"
 
 # get the index started
 cat "$rootdir/html/generic/preall.html" > "$indexfile"
-cat "$rootdir/html/styles/preindex.html" > "$indexfile"
+cat "$rootdir/html/styles/preindex.html" >> "$indexfile"
 
 for mdfile in "$inputdir"/*.md; do
 
@@ -39,5 +39,5 @@ for mdfile in "$inputdir"/*.md; do
 done # finished for loop though md files in ./sessions
 
 # finish the index
-cat "$rootdir/html/styles/postindex.html" > "$indexfile"
-cat "$rootdir/html/generic/postall.html" > "$indexfile"
+cat "$rootdir/html/styles/postindex.html" >> "$indexfile"
+cat "$rootdir/html/generic/postall.html" >> "$indexfile"
