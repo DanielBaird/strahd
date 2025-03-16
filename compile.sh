@@ -1,7 +1,7 @@
 scriptname=$(realpath "$0")
 rootdir="$(dirname "$scriptname")"
 inputdir="$rootdir/sessions"
-outputdir="$rootdir/web"
+outputdir="$rootdir/docs"
 style="${2-sessionnotes}"
 
 for mdfile in "$inputdir"/*.md; do
