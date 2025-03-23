@@ -33,7 +33,11 @@ for mdfile in "$inputdir"/*.md; do
 
         echo "<li><a href=\"$htmlfilename\">$htmlfilename</a></li>" >> "$indexfile"
 
-        echo "...created $htmlfilename at file:///`wslpath -m "$htmlfile"` "
+        if command -v wshpath; then
+            echo "...created $htmlfilename at file:///`wslpath -m "$htmlfile"` "
+        else
+            echo "...created $htmlfilename at file:///$htmlfile "
+        fi
 
     fi
 
