@@ -135,9 +135,18 @@ button {
 </style>
 
 <style>
-    body { 
+    body {
+        /* --fancy-font: "UnifrakturCook", cursive; */
+        /* --fancy-font: "Berkshire Swash", serif; */
+        /* --fancy-font: "Pirata One", system-ui; */
+        /* --fancy-font: "UnifrakturMaguntia", cursive; */
+        /* --fancy-font: "Germania One", cursive; */        
+        /* --fancy-font: "Aguafina Script", cursive; */        
+        --fanciest-font: "UnifrakturMaguntia", cursive;
+        --fancy-font: "Berkshire Swash", serif;
         background-color: #111;
         color: #f4f4f4;
+        text-shadow: 0 0 0.15em #a00;
     }
     .wrapper {
         background-color: #171717;
@@ -148,6 +157,7 @@ button {
     a { color: #d33; }
     a:visited { color: #a00; }
     h1, h2 {
+        font-weight: normal;
         text-shadow: 0 0.025em 0.08em red;
     }
 </style>
@@ -155,7 +165,7 @@ button {
     <!-- google fonts links -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Germania+One&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Berkshire+Swash&family=Germania+One&family=Pirata+One&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="wrapper">
@@ -163,7 +173,15 @@ button {
 <style>
     h1 { font-size: 3rem; }
     h1, h2 {
-        font-family: "Germania One", system-ui;
+        text-align: center;
+        font-weight: 400;
+        font-family: var(--fancy-font);
+    }
+    h1::first-letter {
+        font-size: 300%;
+        display: inline-block;
+        vertical-align: middle;
+        font-family: var(--fanciest-font);
     }
     blockquote {
         border: 1px solid;
@@ -172,8 +190,17 @@ button {
         padding: 0.25em 0.75em;
         margin: 0.125em 0;
     }
+    nav { 
+        font-family: var(--fancy-font); 
+        border: 1px solid #800;
+        border-width: 0 0 1px 0;
+        margin-bottom: 2em;
+    }
+    nav a, nav a:visited { color: #f4f4f4; }
+    nav a:hover { color: inherit; }
 </style>
-<h1>Session 1</h1>
+
+<nav><a href="index.html">&#x2b39; Home</a></nav><h1>Session 1</h1>
 <h2>2025 03 16</h2>
 <p>The bot boys enter the tavern. Over in a far corner, a woman dressed in a bright floral dress enjoys the distinctive bagpipe music being performed by a bard on the stage.</p>
 <p>The more human appearing fellow, Thalion, notices the reflection of the empty stage in the dirty window. The stage currently holding the bard.</p>
@@ -208,6 +235,19 @@ button {
 <p>The skeletons look like they simply died here, perhaps of starvation. The dollhouse is a flawless replica of the house we&#39;re in, and we discover secret doors in the library, and a secret stair from the attic down to the basement. However when we touch the dollhouse the ghost children appear in the room telling us not to touch their toys. They&#39;re not particularly angry, but don&#39;t recognise us, don&#39;t know where Sir Carrots is, and they still want us to kill the monster.</p>
 <p>On the way out the kids&#39; room, Rose calls out &quot;No, don&#39;t leave&quot; but when she grabs at Charity, she and Thorn suddenly scream in pain and disappear.</p>
 
-</div>
+<!-- post session customisations -->
+<script>
+    document.querySelectorAll('h2').forEach( h2 => {
+        if (h2.innerText.match(/202\d\s+\d\d?\s+\d\d?/)) {
+            let date = new Date(h2.innerText)
+            h2.innerText = date.toLocaleDateString(undefined, {
+                weekday: "long",
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            })
+        }
+    })
+</script></div>
 </body>
 </html>

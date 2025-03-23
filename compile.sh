@@ -28,6 +28,7 @@ for mdfile in "$inputdir"/*.md; do
         cat "$rootdir/html/generic/preall.html" > "$htmlfile"
         cat "$rootdir/html/styles/pre$style.html" >> "$htmlfile"
         marked -i "$mdfile" >> "$htmlfile"
+        cat "$rootdir/html/styles/post$style.html" >> "$htmlfile"
         cat "$rootdir/html/generic/postall.html" >> "$htmlfile"
 
         echo "<li><a href=\"$htmlfilename\">$htmlfilename</a></li>" >> "$indexfile"

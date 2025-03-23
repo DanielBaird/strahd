@@ -1,2 +1,23 @@
 <!-- post index customisations -->
 </ul>
+<script>
+    document.querySelectorAll('li a').forEach( li_a => {
+        console.log(li_a.innerText)
+        let matches = li_a.innerText.match(/^(202\d-\d\d?-\d\d?)(\-?)(.+?)(\d+)\.md\.html$/)
+        if (matches) {
+            let newText = []
+            newText.push(matches[3])
+            newText.push(matches[4])
+            newText.push("-")
+            let date = new Date(matches[1])
+            newText.push(date.toLocaleDateString(undefined, {
+                weekday: "long",
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            }))
+            console.log(newText)
+            li_a.innerText = newText.join(" ")
+        }
+    })
+</script>

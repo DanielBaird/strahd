@@ -1,0 +1,14 @@
+<!-- post session customisations -->
+<script>
+    document.querySelectorAll('h2').forEach( h2 => {
+        if (h2.innerText.match(/202\d\s+\d\d?\s+\d\d?/)) {
+            let date = new Date(h2.innerText)
+            h2.innerText = date.toLocaleDateString(undefined, {
+                weekday: "long",
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            })
+        }
+    })
+</script>
