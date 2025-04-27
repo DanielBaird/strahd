@@ -144,17 +144,22 @@ button {
         /* --fancy-font: "Germania One", cursive; */
         /* --fancy-font: "Aguafina Script", cursive; */
         /* --body-font: font-family: "Alegreya", serif; */
-        --fanciest-font: "UnifrakturMaguntia", cursive;
+        /* --fanciest-font: "UnifrakturMaguntia", serif; */
+        /* --letter-font: "Aguafina Script", serif; */
+        /* --letter-font: "Tangerine", serif; */
+        --fanciest-font: "UnifrakturMaguntia", serif;
+        --fanciest-font-best-s: "UnifrakturCook", serif;
         --fancy-font: "Berkshire Swash", serif;
         --body-font: "Alegreya", serif;
-        background-color: #111;
-        color: #f4f4f4;
+        --letter-font: "Tangerine", serif;
+        background-color: #000;
+        color: rgba(255,255,255, 0.9);
         text-shadow: 0 0 0.15em #a00;
         font-family: var(--body-font);
         font-optical-sizing: auto;
     }
     .wrapper {
-        background-color: #171717;
+        background-color: #111;
         margin: -4rem auto -4rem;
         padding: 6rem 4em 20rem 4.5em;
         box-shadow: inset 0 -5em 3em #600, 0 -5em 8em #200;
@@ -188,7 +193,7 @@ button {
     <!-- google fonts links -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Alegreya:ital,wght@0,400..900;1,400..900&family=Berkshire+Swash&family=Germania+One&family=Pirata+One&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Alegreya:ital,wght@0,400..900;1,400..900&family=Berkshire+Swash&family=Germania+One&family=Pirata+One&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="wrapper">
@@ -204,7 +209,7 @@ button {
         font-size: 300%;
         display: inline-block;
         vertical-align: middle;
-        font-family: var(--fanciest-font);
+        font-family: var(--fanciest-font-best-s);
     }
     blockquote {
         border: 1px solid;
@@ -213,17 +218,31 @@ button {
         padding: 0.25em 0.75em;
         margin: 0.125em 0;
     }
-    nav { 
-        font-family: var(--fancy-font); 
+    nav {
+        font-family: var(--fancy-font);
         border: 1px solid #800;
         border-width: 0 0 1px 0;
         margin-bottom: 2em;
     }
     nav a, nav a:visited { color: #f4f4f4; }
     nav a:hover { color: inherit; }
+    code {
+        display: block;
+        padding: 2em 1.5em;
+        margin: 0.5em -0.5em;
+        background: #dcb;
+        color: black;
+        text-shadow: none;
+        white-space: pre-line;
+        font-size: 1.66em;
+        line-height: 1.0;
+        font-family: var(--letter-font);
+        box-shadow: inset 0 0 3em #864, inset 0 0 0.5em #420;
+    }
 </style>
 
-<nav><a href="index.html">&#x2b39; Home</a></nav><h1>Session 3</h1>
+<nav><a href="index.html">&#x2b39; Home</a></nav>
+<h1>Session 3</h1>
 <h2>2025 04 13</h2>
 <p>We take a short rest in the dusty bedroom, alongside the ghast corpses.</p>
 <p>We find the stairs down to the chanting room. We get to understand the words: &quot;He is the Ancient. He is the Land.&quot; Charity seems more and more excited and nervous. &quot;Get ready. Get ready!&quot; she hisses at the group.</p>

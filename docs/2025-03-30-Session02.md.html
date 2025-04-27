@@ -144,17 +144,22 @@ button {
         /* --fancy-font: "Germania One", cursive; */
         /* --fancy-font: "Aguafina Script", cursive; */
         /* --body-font: font-family: "Alegreya", serif; */
-        --fanciest-font: "UnifrakturMaguntia", cursive;
+        /* --fanciest-font: "UnifrakturMaguntia", serif; */
+        /* --letter-font: "Aguafina Script", serif; */
+        /* --letter-font: "Tangerine", serif; */
+        --fanciest-font: "UnifrakturMaguntia", serif;
+        --fanciest-font-best-s: "UnifrakturCook", serif;
         --fancy-font: "Berkshire Swash", serif;
         --body-font: "Alegreya", serif;
-        background-color: #111;
-        color: #f4f4f4;
+        --letter-font: "Tangerine", serif;
+        background-color: #000;
+        color: rgba(255,255,255, 0.9);
         text-shadow: 0 0 0.15em #a00;
         font-family: var(--body-font);
         font-optical-sizing: auto;
     }
     .wrapper {
-        background-color: #171717;
+        background-color: #111;
         margin: -4rem auto -4rem;
         padding: 6rem 4em 20rem 4.5em;
         box-shadow: inset 0 -5em 3em #600, 0 -5em 8em #200;
@@ -188,7 +193,7 @@ button {
     <!-- google fonts links -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Alegreya:ital,wght@0,400..900;1,400..900&family=Berkshire+Swash&family=Germania+One&family=Pirata+One&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Alegreya:ital,wght@0,400..900;1,400..900&family=Berkshire+Swash&family=Germania+One&family=Pirata+One&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="wrapper">
@@ -204,7 +209,7 @@ button {
         font-size: 300%;
         display: inline-block;
         vertical-align: middle;
-        font-family: var(--fanciest-font);
+        font-family: var(--fanciest-font-best-s);
     }
     blockquote {
         border: 1px solid;
@@ -213,28 +218,43 @@ button {
         padding: 0.25em 0.75em;
         margin: 0.125em 0;
     }
-    nav { 
-        font-family: var(--fancy-font); 
+    nav {
+        font-family: var(--fancy-font);
         border: 1px solid #800;
         border-width: 0 0 1px 0;
         margin-bottom: 2em;
     }
     nav a, nav a:visited { color: #f4f4f4; }
     nav a:hover { color: inherit; }
+    code {
+        display: block;
+        padding: 2em 1.5em;
+        margin: 0.5em -0.5em;
+        background: #dcb;
+        color: black;
+        text-shadow: none;
+        white-space: pre-line;
+        font-size: 1.66em;
+        line-height: 1.0;
+        font-family: var(--letter-font);
+        box-shadow: inset 0 0 3em #864, inset 0 0 0.5em #420;
+    }
 </style>
 
-<nav><a href="index.html">&#x2b39; Home</a></nav><h1>Session 2</h1>
+<nav><a href="index.html">&#x2b39; Home</a></nav>
+<h1>Session 2</h1>
 <h2>2025 03 30</h2>
 <p>So we know about a few new secrets in the house, and decide to check the secret room on floor 2 before we go fight the basement monster.</p>
 <p>The secret room is a small room with bookshelves and a chest against the far wall, with a skeleton positioned as if it had half climbed into the chest.</p>
 <p>The bookshelves and desk include books about necromancy and summoning rituals, showing that the owners were priests of &quot;Osybus&quot;, whatever that is.</p>
 <p>Thalion steps into the room and examines the skeleton. It&#39;s been killed by a dart trap, and is holding a letter written on fancy parchment.</p>
-<blockquote>
-<p>Letter: I am not a messiah sent to you by the Dark Powers of this land. I have not come to lead you on a path to immortality. However many souls you have bled on your hidden altar, however many visitors you have tortured in your dungeon, know that you are not the ones who brought me to this beautiful land. You are but worms writhing in my earth.
+<pre><code>I am not a messiah sent to you by the Dark Powers of this land. I have not come to lead you on a path to immortality. However many souls you have bled on your hidden altar, however many visitors you have tortured in your dungeon, know that you are not the ones who brought me to this beautiful land. You are but worms writhing in my earth.
+
 You say that you are cursed, your fortunes spent. You abandoned love for madness, took solace in the bosom of another woman, and sired a stillborn son. Cursed by darkness? Of that I have no doubt. Save you from your wretchedness? I think not. I much prefer you as you are.
-    Your dread lord and master,
-    Strahd von Zarovich</p>
-</blockquote>
+
+Your dread lord and master,
+Strahd von Zarovich
+</code></pre>
 <p>Thalion checks the chest, finding a bunch of stuff.</p>
 <blockquote>
 <p>T: acquires three books (25gp each); three scrolls (Bless, Protection From Poison, Spiritual Weapon); the deed to this house; the deed to a windmill; a signed will bequeathing all this stuff to some other Dursts. Or maybe it was these Dursts?</p>
