@@ -1,0 +1,266 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/*Box sizing (the nuclear option) */
+*, *:before, *:after {
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:border-box;
+    box-sizing: border-box;
+}
+
+/* Fix font rendering defaults */
+html, button {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-size: 100%;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, input,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+}
+
+/* IE fixes for HTML5 elements */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+strong, b, mark{
+    font-weight:bold;
+    font-style:inherit;
+}
+
+em, i, cite, q, address, dfn, var{
+    font-style:italic;
+    font-weight:inherit;
+}
+
+a, u, ins{
+    text-decoration:none;
+}
+
+pre, code, samp, kbd{
+    font-family:monospace;
+}
+
+iframe {
+  width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: none;
+}
+
+input,
+select,
+textarea{
+    font:inherit;
+}
+
+button {
+    cursor: pointer;
+}</style>
+
+<style>
+    body {
+        margin: 0;
+        padding: 3em 0 5em;
+        font-family: 'Book Antiqua', serif;
+        font-weight: 400;
+        line-height: 1.4;
+        font-size: 18px;
+    }
+
+    p { padding: 0.25em 0; }
+    b, strong { font-weight: bold; }
+    i, em { font-style: italic; }
+    code { font-family: sans-serif; }
+
+    h1, h2, h3, h4, h5 {
+        line-height: 1.1;
+        padding: 0.5em 0;
+    }
+    h1 { font-size: 1.953rem }
+    h2 { font-size: 1.563rem }
+    h3 { font-size: 1.25rem }
+    h4 { font-size: 1rem }
+    h5 { font-size: 0.8rem }
+
+    h1 { text-align: center }
+
+    .wrapper {
+        max-width: 40rem;
+        margin: 0 auto;
+        padding: 2em 2em 3em;
+    }
+
+    ul, ol {
+        padding: 0.3em 0 0.3em 1em;
+    }
+    li {
+        line-height: 1.1;
+        padding-bottom: 0.2em;
+    }
+</style>
+
+<style>
+    body {
+        /* --fancy-font: "UnifrakturCook", cursive; */
+        /* --fancy-font: "Berkshire Swash", serif; */
+        /* --fancy-font: "Pirata One", system-ui; */
+        /* --fancy-font: "UnifrakturMaguntia", cursive; */
+        /* --fancy-font: "Germania One", cursive; */
+        /* --fancy-font: "Aguafina Script", cursive; */
+        /* --body-font: font-family: "Alegreya", serif; */
+        --fanciest-font: "UnifrakturMaguntia", cursive;
+        --fancy-font: "Berkshire Swash", serif;
+        --body-font: "Alegreya", serif;
+        background-color: #111;
+        color: #f4f4f4;
+        text-shadow: 0 0 0.15em #a00;
+        font-family: var(--body-font);
+        font-optical-sizing: auto;
+    }
+    .wrapper {
+        background-color: #171717;
+        margin: -4rem auto -4rem;
+        padding: 6rem 4em 20rem 4.5em;
+        box-shadow: inset 0 -5em 3em #600, 0 -5em 8em #200;
+        position: relative;
+    }
+    /* .wrapper:after {
+        content: url(./images/town-sil.png);
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        height: 100px;
+        left: 0;
+        right: 0;
+    } */
+    @media screen and (max-width: 37rem) { .wrapper {
+        padding: 6rem 10vw 20rem 12vw;
+        box-shadow: inset 0 -5em 3em #500;
+    }}
+    @media screen and (max-width: 28rem) { .wrapper {
+        padding: 6rem 5vw 20rem 6vw;
+        box-shadow: inset 0 -5em 3em #400;
+    }}
+    a { color: #d33; }
+    a:visited { color: #a00; }
+    h1, h2 {
+        font-weight: normal;
+        text-shadow: 0 0.025em 0.08em red;
+    }
+</style>
+
+    <!-- google fonts links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Alegreya:ital,wght@0,400..900;1,400..900&family=Berkshire+Swash&family=Germania+One&family=Pirata+One&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="wrapper">
+
+<!-- pre session customisations -->
+<style>
+    h1 { font-size: 3rem; }
+    h1, h2 {
+        text-align: center;
+        font-weight: 400;
+        font-family: var(--fancy-font);
+    }
+    h1::first-letter {
+        font-size: 300%;
+        display: inline-block;
+        vertical-align: middle;
+        font-family: var(--fanciest-font);
+    }
+    blockquote {
+        border: 1px solid;
+        border-radius: 0.5em;
+        background: rgba(255,255,255,0.1);
+        padding: 0.25em 0.75em;
+        margin: 0.125em 0;
+    }
+    nav {
+        font-family: var(--fancy-font);
+        border: 1px solid #800;
+        border-width: 0 0 1px 0;
+        margin-bottom: 2em;
+    }
+    nav a, nav a:visited { color: #f4f4f4; }
+    nav a:hover { color: inherit; }
+</style>
+
+<nav><a href="index.html">&#x2b39; Home</a></nav>
+
+<h1>Acquisitions</h1>
+
+<script>
+
+    function pageUrlToAcquitions(url) {
+        let acqs = []
+        let pageFetch = fetch(url)
+        pageFetch.then( pageResponse => {
+            let pageHtmlText = pageResponse.text()
+            pageHtmlText.then( page => {
+                // parse the response text with a DOM parser
+                const parser = new DOMParser()
+                const pageDom = parser.parseFromString(page, "text/html")
+                console.log(pageDom)
+                console.log(pageDom.querySelectorAll('h1'))
+            })
+        })
+
+    }
+
+    let pagesFetch = fetch('pages.json')
+    pagesFetch.then( pagesResponse => {
+        let pagesJson = pagesResponse.json()
+        pagesJson.then( pagesList => {
+            console.log(pagesList)
+            let acqusitionsList = {}
+            pagesList.pages.forEach( pageUrl => {
+                console.log(pageUrl)
+                pageUrlToAcquitions(pageUrl)
+            })
+
+        })
+    })
+</script>
+
+</div>
+</body>
+</html>
