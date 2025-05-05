@@ -224,13 +224,15 @@ button {
     nav a:hover { color: inherit; }
 </style>
 
-<nav><a href="index.html">&#x2b39; Home</a></nav>
+<nav>
+    <a href="index.html">&#x2b39; Home</a>
+</nav>
 
 <h1>Acquisitions</h1>
 
 <script>
 
-    function pageUrlToAcquitions(url) {
+    function handlePage(url) {
         let acqs = []
         let pageFetch = fetch(url)
         pageFetch.then( pageResponse => {
@@ -239,26 +241,68 @@ button {
                 // parse the response text with a DOM parser
                 const parser = new DOMParser()
                 const pageDom = parser.parseFromString(page, "text/html")
-                console.log(pageDom)
-                console.log(pageDom.querySelectorAll('h1'))
+
+                // pull out the blockquotes
+                const bqNodes = pageDom.querySelectorAll('blockquote')
+                const bqList = Array.from(bqNodes)
+
+                // add the blockquotes to the page
+                const section = document.querySelector('section[title="' + url + '"]')
+                bqList.forEach( acq => {
+                    console.log(acq)
+                    section.append(acq)
+                })
             })
         })
+    }
 
+    // this function is used to format session filenames into nice titles
+    const sessionRegex = /^(202\d)[-\s]+(\d\d?)[-\s]+(\d\d?)[-\s]+[Ss]ession\s*(\d+)(.*)$/
+    function sessionNameReplacer(match, year, month, day, session) {
+        let date = new Date(year + '-' + month + "-" + day)
+        let niceDate = date.toLocaleDateString(undefined, {
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        })
+        return ['Session', +session, '-', niceDate].join(' ')
+    }
+
+    function addSections(list) {
+        list.forEach(sessionName => {
+            // make a section for this session
+            const sessionSection = document.createElement('section')
+            sessionSection.title = sessionName
+
+            // add a heading to the section
+            const name = sessionName.replace(sessionRegex, sessionNameReplacer)
+            const nameLink = document.createElement('a')
+            nameLink.innerText = name
+            nameLink.href = sessionName
+            let nameHead = document.createElement('h3')
+            nameHead.append(nameLink)
+            sessionSection.append(nameHead)
+
+            // add this session's section to the page
+            document.querySelector('.wrapper').append(sessionSection)
+        })
     }
 
     let pagesFetch = fetch('pages.json')
     pagesFetch.then( pagesResponse => {
         let pagesJson = pagesResponse.json()
         pagesJson.then( pagesList => {
-            console.log(pagesList)
+            addSections(pagesList.pages)
             let acqusitionsList = {}
             pagesList.pages.forEach( pageUrl => {
                 console.log(pageUrl)
-                pageUrlToAcquitions(pageUrl)
+                handlePage(pageUrl)
             })
 
         })
     })
+
 </script>
 
 </div>
