@@ -222,6 +222,27 @@ button {
     }
     nav a, nav a:visited { color: #f4f4f4; }
     nav a:hover { color: inherit; }
+
+    h1, h2, h3, h4 {
+        clear: both;
+    }
+    p.acq {
+        clear: both;
+        padding: 0.33em 0 0.33em 5rem;
+    }
+    p.acq span.charName {
+        display: block;
+        padding: 0.5em 0.1em;
+        background-color: #000;
+        border-radius: 0.33rem;
+        text-align: center;
+        line-height: 0.9;
+        font-size: 80%;
+        word-wrap: break-word;
+        float: left;
+        margin-left: -5rem;
+        width: 4rem;
+    }
 </style>
 
 <nav>
@@ -231,6 +252,42 @@ button {
 <h1>Acquisitions</h1>
 
 <script>
+    const knownChars = {
+        'CF': { nick: 'Charity',
+                long: 'Charity Flowerhope',
+                color: '#cc0'
+        },
+        'T':  { nick: 'Thalion'
+        },
+        '??': { nick: 'unknown'
+        }
+    }
+
+    const acqRegex = /^\s*((\w+)\:)?(.*)\s*$/
+    function addAcq(source, parentElement) {
+        const matches = source.match(acqRegex)
+        const info = matches[3]
+        const charCode = matches[2] || '??'
+        const charData = knownChars[charCode]
+        const charNick = charData?.nick || charCode
+
+        // get an element to hold the acq
+        const acq = document.createElement('p')
+        acq.classList.add('acq')
+
+        // add the character tag
+        const charName = document.createElement('span')
+        charName.classList.add('charName')
+        charName.style.color = charData?.color || '#c33'
+        charName.innerText = charNick
+        charName.title = (charData?.long || charNick) + ' (' + charCode + ')'
+        acq.append(charName)
+
+        // put the acq info in
+        acq.append(document.createTextNode(info))
+
+        parentElement.append(acq)
+    }
 
     function handlePage(url) {
         let acqs = []
@@ -249,14 +306,14 @@ button {
                 // add the blockquotes to the page
                 const section = document.querySelector('section[title="' + url + '"]')
                 bqList.forEach( acq => {
-                    console.log(acq)
-                    section.append(acq)
+                    addAcq(acq.innerText, section)
                 })
             })
         })
     }
 
-    // this function is used to format session filenames into nice titles
+    // this regex and function are used to format session
+    // filenames into nice titles
     const sessionRegex = /^(202\d)[-\s]+(\d\d?)[-\s]+(\d\d?)[-\s]+[Ss]ession\s*(\d+)(.*)$/
     function sessionNameReplacer(match, year, month, day, session) {
         let date = new Date(year + '-' + month + "-" + day)
@@ -296,7 +353,6 @@ button {
             addSections(pagesList.pages)
             let acqusitionsList = {}
             pagesList.pages.forEach( pageUrl => {
-                console.log(pageUrl)
                 handlePage(pageUrl)
             })
 
