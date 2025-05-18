@@ -1,11 +1,18 @@
 scriptname=$(realpath "$0")
 rootdir="$(dirname "$scriptname")"
-sessiondir="$rootdir/sessions"
+sessiondir="$rootdir/strahdsessions"
 pagesdir="$rootdir/html/pages"
 outputdir="$rootdir/docs"
 indexfile="$outputdir/index.html"
 datafile="$outputdir/pages.json"
 style="${2-sessionnotes}"
+
+wslmode=false
+echo -n '> wslpath is: '
+if command -v wslpath; then
+    wslmode=true
+fi
+echo '> WSL mode set to' $wslmode
 
 # get the index started
 cat "$rootdir/html/generic/preall.html" > "$indexfile"
@@ -15,19 +22,24 @@ cat "$rootdir/html/styles/preindex.html" >> "$indexfile"
 echo "{ \"pages\": [" > "$datafile"
 
 # loop through all the plain ol' pages
+echo -n "> copying plain pages: "
 for pagefile in "$pagesdir"/*.html; do
 
-    echo "copying $pagefile ..."
+    echo -ne "."
     pagefilename="$(basename "$pagefile")"
     pageoutput="$outputdir/$pagefilename"
     cp "$pagefile" "$pageoutput"
+    echo -ne "\u2713"
 
 done # finished for loop though pages files
+echo " done."
 
 
 # loop through all the session md files in the input dir
+echo -n "> compiling session files using style $style: "
 for mdfile in "$sessiondir"/*.md; do
 
+    echo -n "."
     basefile="$(basename "$mdfile")"
     htmlfilename="$basefile.html"
     htmlfile="$outputdir/$htmlfilename"
@@ -38,28 +50,31 @@ for mdfile in "$sessiondir"/*.md; do
 
     else
         # everything seems fine ------------------------------------
-        echo "using the $style style on $basefile ..."
 
-        ## co0ncatenate all the pieces
+        ## concatenate all the pieces
         cat "$rootdir/html/generic/preall.html" > "$htmlfile"
+        echo -n "."
         cat "$rootdir/html/styles/pre$style.html" >> "$htmlfile"
+        echo -n "."
         marked -i "$mdfile" >> "$htmlfile"
+        echo -n "."
         cat "$rootdir/html/styles/post$style.html" >> "$htmlfile"
+        echo -n "."
         cat "$rootdir/html/generic/postall.html" >> "$htmlfile"
+        echo -n "."
 
         # also add this to the list of sessions
         echo "<li><a href=\"$htmlfilename\">$htmlfilename</a></li>" >> "$indexfile"
+        echo -n "."
 
         # also add this to the list of pages for scanning stuff
         echo "    \"$htmlfilename\"," >> "$datafile"
+        echo -n "."
+        echo -ne "\u2713"
 
-        if command -v wslpath; then
-            echo "    ...created $htmlfilename at file:///`wslpath -m "$htmlfile"` "
-        else
-            echo "    ...created $htmlfilename at file:///$htmlfile "
-        fi
     fi
-done # finished for loop though md files in ./sessions
+done # finished for loop though md files in the session dir
+echo " done."
 
 # finish the data file
 echo "    \"\"" >> "$datafile"
@@ -68,3 +83,11 @@ echo "]}" >> "$datafile"
 # finish the index
 cat "$rootdir/html/styles/postindex.html" >> "$indexfile"
 cat "$rootdir/html/generic/postall.html" >> "$indexfile"
+
+if $wslmode; then
+    echo "Index is at:"
+    echo "    file:///`wslpath -m "$indexfile"` "
+else
+    echo "Index is at:"
+    echo "    file:///$indexfile "
+fi
