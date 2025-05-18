@@ -1,0 +1,304 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/*Box sizing (the nuclear option) */
+*, *:before, *:after {
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:border-box;
+    box-sizing: border-box;
+}
+
+/* Fix font rendering defaults */
+html, button {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-size: 100%;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, input,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+}
+
+/* IE fixes for HTML5 elements */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+strong, b, mark{
+    font-weight:bold;
+    font-style:inherit;
+}
+
+em, i, cite, q, address, dfn, var{
+    font-style:italic;
+    font-weight:inherit;
+}
+
+a, u, ins{
+    text-decoration:none;
+}
+
+pre, code, samp, kbd{
+    font-family:monospace;
+}
+
+iframe {
+  width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: none;
+}
+
+input,
+select,
+textarea{
+    font:inherit;
+}
+
+button {
+    cursor: pointer;
+}</style>
+
+<style>
+    body {
+        margin: 0;
+        padding: 3em 0 5em;
+        font-family: 'Book Antiqua', serif;
+        font-weight: 400;
+        line-height: 1.4;
+        font-size: 18px;
+    }
+
+    p { padding: 0.25em 0; }
+    b, strong { font-weight: bold; }
+    i, em { font-style: italic; }
+    code { font-family: sans-serif; }
+
+    h1, h2, h3, h4, h5 {
+        line-height: 1.1;
+        padding: 0.5em 0;
+    }
+    h1 { font-size: 1.953rem }
+    h2 { font-size: 1.563rem }
+    h3 { font-size: 1.25rem }
+    h4 { font-size: 1rem }
+    h5 { font-size: 0.8rem }
+
+    h1 { text-align: center }
+
+    .wrapper {
+        max-width: 40rem;
+        margin: 0 auto;
+        padding: 2em 2em 3em;
+    }
+
+    ul, ol {
+        padding: 0.3em 0 0.3em 1em;
+    }
+    li {
+        line-height: 1.1;
+        padding-bottom: 0.2em;
+    }
+</style>
+
+<style>
+    body {
+        /* --fancy-font: "UnifrakturCook", cursive; */
+        /* --fancy-font: "Berkshire Swash", serif; */
+        /* --fancy-font: "Pirata One", system-ui; */
+        /* --fancy-font: "UnifrakturMaguntia", cursive; */
+        /* --fancy-font: "Germania One", cursive; */
+        /* --fancy-font: "Aguafina Script", cursive; */
+        /* --body-font: font-family: "Alegreya", serif; */
+        /* --fanciest-font: "UnifrakturMaguntia", serif; */
+        /* --letter-font: "Aguafina Script", serif; */
+        /* --letter-font: "Tangerine", serif; */
+        --fanciest-font: "UnifrakturMaguntia", serif;
+        --fanciest-font-best-s: "UnifrakturCook", serif;
+        --fancy-font: "Berkshire Swash", serif;
+        --body-font: "Alegreya", serif;
+        --letter-font: "Tangerine", serif;
+        background-color: #000;
+        color: rgba(255,255,255, 0.9);
+        text-shadow: 0 0 0.15em #a00;
+        font-family: var(--body-font);
+        font-optical-sizing: auto;
+    }
+    .wrapper {
+        background-color: #111;
+        margin: -4rem auto -4rem;
+        padding: 6rem 4em 20rem 4.5em;
+        box-shadow: inset 0 -5em 3em #600, 0 -5em 8em #200;
+        position: relative;
+    }
+    /* .wrapper:after {
+        content: url(./images/town-sil.png);
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        height: 100px;
+        left: 0;
+        right: 0;
+    } */
+    @media screen and (max-width: 37rem) { .wrapper {
+        padding: 6rem 10vw 20rem 12vw;
+        box-shadow: inset 0 -5em 3em #500;
+    }}
+    @media screen and (max-width: 28rem) { .wrapper {
+        padding: 6rem 5vw 20rem 6vw;
+        box-shadow: inset 0 -5em 3em #400;
+    }}
+    a { color: #d33; }
+    a:visited { color: #a00; }
+    h1, h2 {
+        font-weight: normal;
+        text-shadow: 0 0.025em 0.08em red;
+    }
+</style>
+
+    <!-- google fonts links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Alegreya:ital,wght@0,400..900;1,400..900&family=Berkshire+Swash&family=Germania+One&family=Pirata+One&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="wrapper">
+<!-- pre session customisations -->
+<style>
+    h1 { font-size: 3rem; }
+    h1, h2 {
+        text-align: center;
+        font-weight: 400;
+        font-family: var(--fancy-font);
+    }
+    h1::first-letter {
+        font-size: 300%;
+        display: inline-block;
+        vertical-align: middle;
+        font-family: var(--fanciest-font-best-s);
+    }
+    blockquote {
+        border: 1px solid;
+        border-radius: 0.5em;
+        background: rgba(255,255,255,0.1);
+        padding: 0.25em 0.75em;
+        margin: 0.125em 0;
+    }
+    nav {
+        font-family: var(--fancy-font);
+        border: 1px solid #800;
+        border-width: 0 0 1px 0;
+        margin-bottom: 2em;
+        display: flex;
+        justify-content: space-between;
+    }
+    nav a {
+        display: inline-block;
+    }
+    nav a, nav a:visited { color: #f4f4f4; }
+    nav a:hover { color: inherit; }
+    code {
+        display: block;
+        padding: 2em 1.5em;
+        margin: 0.5em -0.5em;
+        background: #dcb;
+        color: black;
+        text-shadow: none;
+        white-space: pre-line;
+        font-size: 1.66em;
+        line-height: 1.0;
+        font-family: var(--letter-font);
+        box-shadow: inset 0 0 3em #864, inset 0 0 0.5em #420;
+    }
+</style>
+
+<nav>
+    <a href="index.html">&#x2b39; Home</a>
+    <a href="acquisitions.html">&#x2a63; Acquisitions</a>
+</nav>
+<h1>Session 4</h1>
+<h2>2025 05 18</h2>
+<p>Charity remembers the the rock-and-paper bundle she pickpocketed from Strahd, and opens it up. The paper is a horny picture of Strahd with the note &quot;call me&quot; scrawled on it, and the stone is a Sending Stone. She drops the items with a repulsed look on her face, but then fishes the Sending Stone back out of the dirt and hands it to Thalion in case it&#39;s useful later. Later on Charity gets it back off Thalion to send snarky negs to Strahd.</p>
+<blockquote>
+<p>CF: acquires a Strahd booty-call Sending Stone</p>
+</blockquote>
+<p>Thalion asks Donovich about the voice from below the floor. Donovich explains that his son Doru was in a group who stormed Castle Ravenloft a year or so back, lead by an unnamed wizard in black robes (like us, the wizard was a recent arrival). The attack failed absolutely, and Doru returned to his father as vampire spawn. He is now locked in the church basement while his father prays daily for a cure.</p>
+<p>We decide to go outside and dig the grave we need. Charity ends up holding the church&#39;s one shovel, and mucks in while the others keep watch.</p>
+<p>A couple of ravens arrive while we&#39;re working, which Charity eventually chases off with her bow. We&#39;ve almost gotten the grave deep enough when Ismark and Ireena come hurrying up the path. They seem harried and are relieved to see us, and tell us that &quot;he&#39;s coming!&quot;</p>
+<p>We all troop in to the church. Ireena seems despondent and stands quietly while Ismark quickly barricades the door.</p>
+<p>Ismark finishes securing the door and takes a breath of relief. He tells us how he has just locked up the house when he found Strahd standing in the drawing room with Ireena. The next few minutes are a blur but he found himself running with Ireena to the church, hoping to find us.</p>
+<p>We make sure all the windows are battened down, and soon the air chills and the lights dim.</p>
+<p>Charity grabs the Booty Stone back off Thalion and says &quot;I&#39;m at the castle, come up here big guy&quot;. A reply arrives saying &quot;I&#39;ll be there in 30 minutes eggplant water-spash peach&quot;. Charity drops the stone into the dirt and tells Donovich that she&#39;ll want to use the church shower after this.</p>
+<p>Strahd knocks on the door. &quot;Little pig, little pig, let me come in. You have something of mine.&quot;</p>
+<p>Charity is keeping an eye on Ireena and Ismark.</p>
+<p>BH replies &quot;Nope. Only people here, and people aren&#39;t property.&quot; There&#39;s a bit of an argument between the two about property and self determination, with liberal use of the word &quot;bro&quot;.</p>
+<p>&quot;Well, I&#39;ll let my buds sort this out&quot; Strahd concludes, and we hear his boots leaving the church porch. A bunch of earthy sounds outside tell us that corpses are digging their way out of the ground around us. We also hear some super creepy noises coming from the coffin we brought inside.</p>
+<p>Strahd&#39;s resurrected minions attack the church and we spend a few rounds picking off ghouls as they smash in through the windows. Strahd is stamping around on the roof.</p>
+<p>Ismark is by the front door and cops a paralysing wound from the ghouls who have broken in through the door. Thalion runs in and we all focus fire on the ghouls in the hallway, just as the coffin lid bursts open and the old burghermeister enters the fray.</p>
+<p>We eventually take out the last few ghouls, including Ismark and Ireena&#39;s dad, and Strahd gets grumpy and fucks off. Aryn and Thalion load the twice-dead dad back into his coffin.</p>
+<p>We take a breath and rest up. Having the siblings here means we don&#39;t need to rush back to the mansion to collect them, so we can take a moment to rest.</p>
+<p>Donovich tells that Ireena might be safe at the Abbey of St Markovia, which is past our original destination of Vallaki in a place called Krezk.</p>
+<p>We turn in. During Charity&#39;s watch (at the stroke of midnight) she hears an ethereal note growing and watches through the window as an eerie green light suffuses the graveyard and a procession of ghosts appears. They&#39;re wizards, fighters, etc of many races and eras.</p>
+<p>Donovich appears and describes the March of The Dead, a procession of all the fallen heroes who have challenged Strahd but failed, forever marching on Castle Ravenloft every midnight. Charity asks Donovich about his son. He&#39;s resigned to idea that he might never be cured, but he is praying that someone -- perhaps us -- might be able to take revenge on Strahd, and harbours some small hope that maybe that could also help his son.</p>
+<p>We rest overnight and in the morning the siblings announce they&#39;re ready to travel directly -- they&#39;re too worried to go back to their house given Strahd was inside last time they were there.</p>
+<p>We heasd out of town. At a bridge, we see a cloaked figure sitting hunched against the side rails. Charity approaches, but there&#39;s no response. It&#39;s a person, or humanoid at least, and when Charity peers under the hood she sees her own face on a corpse.</p>
+<p>Charity walks back to the group and asks Thalion to go over and tell her what he sees under the hood. He also sees Charity&#39;s dead face, which is one of the more creepy options. We talk about what to do. Eventually we decide to just cross the bridge, one by one. Nothing happens. On the other side we notice a raven observing us, and Charity whips out an arrow and fires. She misses by a lot, and the raven flies off.</p>
+<p>As evening approaches we find a fork in the road. Ismark thinks for a minute and tells us the right, northerly fork is the faster path by a whole day, but leads through an Istani encampment. The Istani might make the road a little less wild by being there, but they aren&#39;t themselves necessarily a safe option for us. We decide to camp here and think on it overnight.</p>
+<p>Aryn talks with Ireena about helping her resist Strahd&#39;s charm spells. There&#39;s not much we can offer but Aryn does her best to reassure Ireena.</p>
+<p>We talk to Ismark about what to expect on the route. Along the Istani northern route after the encampment he describes the Tizer Pools and Tizer Falls. Further along are the Gates of Barovia, one of two sets of gates. Through the Gates lies the road to Castle Ravenloft. After the Gates there&#39;s an abandoned mill (which might be the place the magic muffins are made, and/or might be the mill we have a deed to), then wildlands until Vallaki and its fortifications. The civilisation makes this path a little safer. He doesn&#39;t know much about the path beyond Vallaki to Krezk and the abbey.</p>
+<p>Along the southern, left fork we skip the Istani area but rejoin the road before the Falls. We figure we might as well take the shorter path through the Istani region.</p>
+<p>We ask about the edges of Barovia. We realise we were near the edge when we arrived; Ismark tells us that as you travel into the border mists, your strength will be sapped until you die.</p>
+<p>We establish our watches and get to bed.</p>
+<p>On Charity&#39;s watch there&#39;s a bit of Booty Stone conversation and eventually Strahd messages &quot;oh well u playing, luckily I have a second option&quot; then we hear Ireena screaming for help in the forest. Ireena isn&#39;t in her bedroll, so we all run into the forest looking for her. We discover the voice we&#39;ve been chasing is coming from a raven, which Charity slashes at but misses.</p>
+
+<!-- post session customisations -->
+<script>
+    document.querySelectorAll('h2').forEach( h2 => {
+        let matches = h2.innerText.match(/^\s*(202\d)\s+(\d\d?)\s+(\d\d?)/)
+        if (matches) {
+            let date = new Date(matches[1] + '-' + matches[2] + "-" + matches[3])
+            h2.innerText = date.toLocaleDateString(undefined, {
+                weekday: "long",
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            })
+        }
+    })
+</script></div>
+</body>
+</html>
