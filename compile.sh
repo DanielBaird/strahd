@@ -7,12 +7,16 @@ indexfile="$outputdir/index.html"
 datafile="$outputdir/pages.json"
 style="${2-sessionnotes}"
 
+bullet="\u25b6"
+
+echo -e "\n\u2756\u2756 Site Compiler \u2756\u2756\n"
+
 wslmode=false
-echo -n '> wslpath is: '
+echo -ne "$bullet wslpath is: "
 if command -v wslpath; then
     wslmode=true
 fi
-echo '> WSL mode set to' $wslmode
+echo -e "$bullet WSL mode set to" $wslmode
 
 # get the index started
 cat "$rootdir/html/generic/preall.html" > "$indexfile"
@@ -22,7 +26,7 @@ cat "$rootdir/html/styles/preindex.html" >> "$indexfile"
 echo "{ \"pages\": [" > "$datafile"
 
 # loop through all the plain ol' pages
-echo -n "> copying plain pages: "
+echo -ne "$bullet copying plain pages: "
 for pagefile in "$pagesdir"/*.html; do
 
     echo -ne "."
@@ -32,11 +36,12 @@ for pagefile in "$pagesdir"/*.html; do
     echo -ne "\u2713"
 
 done # finished for loop though pages files
-echo " done."
+echo " done"
 
 
 # loop through all the session md files in the input dir
-echo -n "> compiling session files using style $style: "
+echo -e "$bullet style is set to: $style "
+echo -ne "$bullet compiling session files: "
 for mdfile in "$sessiondir"/*.md; do
 
     echo -n "."
@@ -74,7 +79,7 @@ for mdfile in "$sessiondir"/*.md; do
 
     fi
 done # finished for loop though md files in the session dir
-echo " done."
+echo " done"
 
 # finish the data file
 echo "    \"\"" >> "$datafile"
@@ -85,9 +90,9 @@ cat "$rootdir/html/styles/postindex.html" >> "$indexfile"
 cat "$rootdir/html/generic/postall.html" >> "$indexfile"
 
 if $wslmode; then
-    echo "Index is at:"
+    echo -e "\nIndex is at:"
     echo "    file:///`wslpath -m "$indexfile"` "
 else
-    echo "Index is at:"
+    echo -e "\nIndex is at:"
     echo "    file:///$indexfile "
 fi
