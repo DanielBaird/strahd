@@ -252,15 +252,25 @@ button {
 <h1>Acquisitions</h1>
 
 <script>
+    const shy = '\u00AD'
     const knownChars = {
         'CF': { nick: 'Charity',
                 long: 'Charity Flowerhope',
                 color: '#cc0'
         },
-        'T':  { nick: 'Thalion'
+        'T':  { nick: 'Thalion',
+                long: 'Thalion',
+                color: '#26f'
         },
-        '??': { nick: 'unknown'
-        }
+        'AC':  { nick: 'Aryn',
+                 long: 'Aryn Chini',
+                 color: '#c3c'
+        },
+        'BH':  { nick: 'Ban'+shy+'hammer',
+                 long: 'Banhammer',
+                 color: '#17A442'
+        },
+        '??':  { nick: 'unknown', color: '#866' }
     }
 
     const acqRegex = /^\s*((\w+)\:)?(.*)\s*$/
@@ -278,7 +288,7 @@ button {
         // add the character tag
         const charName = document.createElement('span')
         charName.classList.add('charName')
-        charName.style.color = charData?.color || '#c33'
+        charName.style.color = charData?.color || '#aaa'
         charName.innerText = charNick
         charName.title = (charData?.long || charNick) + ' (' + charCode + ')'
         acq.append(charName)
