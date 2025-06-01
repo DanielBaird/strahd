@@ -1,0 +1,329 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/*Box sizing (the nuclear option) */
+*, *:before, *:after {
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:border-box;
+    box-sizing: border-box;
+}
+
+/* Fix font rendering defaults */
+html, button {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-size: 100%;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, input,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+}
+
+/* IE fixes for HTML5 elements */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+strong, b, mark{
+    font-weight:bold;
+    font-style:inherit;
+}
+
+em, i, cite, q, address, dfn, var{
+    font-style:italic;
+    font-weight:inherit;
+}
+
+a, u, ins{
+    text-decoration:none;
+}
+
+pre, code, samp, kbd{
+    font-family:monospace;
+}
+
+iframe {
+  width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: none;
+}
+
+input,
+select,
+textarea{
+    font:inherit;
+}
+
+button {
+    cursor: pointer;
+}</style>
+
+<style>
+    body {
+        margin: 0;
+        padding: 3em 0 5em;
+        font-family: 'Book Antiqua', serif;
+        font-weight: 400;
+        line-height: 1.4;
+        font-size: 18px;
+    }
+
+    p { padding: 0.25em 0; }
+    b, strong { font-weight: bold; }
+    i, em { font-style: italic; }
+    code { font-family: sans-serif; }
+
+    h1, h2, h3, h4, h5 {
+        line-height: 1.1;
+        padding: 0.5em 0;
+    }
+    h1 { font-size: 1.953rem }
+    h2 { font-size: 1.563rem }
+    h3 { font-size: 1.25rem }
+    h4 { font-size: 1rem }
+    h5 { font-size: 0.8rem }
+
+    h1 { text-align: center }
+
+    .wrapper {
+        max-width: 40rem;
+        margin: 0 auto;
+        padding: 2em 2em 3em;
+    }
+
+    ul, ol {
+        padding: 0.3em 0 0.3em 1em;
+    }
+    li {
+        line-height: 1.1;
+        padding-bottom: 0.2em;
+    }
+</style>
+
+<style>
+    body {
+        /* --fancy-font: "UnifrakturCook", cursive; */
+        /* --fancy-font: "Berkshire Swash", serif; */
+        /* --fancy-font: "Pirata One", system-ui; */
+        /* --fancy-font: "UnifrakturMaguntia", cursive; */
+        /* --fancy-font: "Germania One", cursive; */
+        /* --fancy-font: "Aguafina Script", cursive; */
+        /* --body-font: font-family: "Alegreya", serif; */
+        /* --fanciest-font: "UnifrakturMaguntia", serif; */
+        /* --letter-font: "Aguafina Script", serif; */
+        /* --letter-font: "Tangerine", serif; */
+        --fanciest-font: "UnifrakturMaguntia", serif;
+        --fanciest-font-best-s: "UnifrakturCook", serif;
+        --fancy-font: "Berkshire Swash", serif;
+        --body-font: "Alegreya", serif;
+        --letter-font: "Tangerine", serif;
+        background-color: #000;
+        color: rgba(255,255,255, 0.9);
+        text-shadow: 0 0 0.15em #a00;
+        font-family: var(--body-font);
+        font-optical-sizing: auto;
+    }
+    .wrapper {
+        background-color: #111;
+        margin: -4rem auto -4rem;
+        padding: 6rem 4em 20rem 4.5em;
+        box-shadow: inset 0 -5em 3em #600, 0 -5em 8em #200;
+        position: relative;
+    }
+    /* .wrapper:after {
+        content: url(./images/town-sil.png);
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        height: 100px;
+        left: 0;
+        right: 0;
+    } */
+    @media screen and (max-width: 37rem) { .wrapper {
+        padding: 6rem 10vw 20rem 12vw;
+        box-shadow: inset 0 -5em 3em #500;
+    }}
+    @media screen and (max-width: 28rem) { .wrapper {
+        padding: 6rem 5vw 20rem 6vw;
+        box-shadow: inset 0 -5em 3em #400;
+    }}
+    a { color: #d33; }
+    a:visited { color: #a00; }
+    h1, h2 {
+        font-weight: normal;
+        text-shadow: 0 0.025em 0.08em red;
+    }
+</style>
+
+    <!-- google fonts links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Alegreya:ital,wght@0,400..900;1,400..900&family=Berkshire+Swash&family=Germania+One&family=Pirata+One&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="wrapper">
+<!-- pre session customisations -->
+<style>
+    h1 { font-size: 3rem; }
+    h1, h2 {
+        text-align: center;
+        font-weight: 400;
+        font-family: var(--fancy-font);
+    }
+    h1::first-letter {
+        font-size: 300%;
+        display: inline-block;
+        vertical-align: middle;
+        font-family: var(--fanciest-font-best-s);
+    }
+    blockquote {
+        border: 1px solid;
+        border-radius: 0.5em;
+        background: rgba(255,255,255,0.1);
+        padding: 0.25em 0.75em;
+        margin: 0.125em 0;
+    }
+    nav {
+        font-family: var(--fancy-font);
+        border: 1px solid #800;
+        border-width: 0 0 1px 0;
+        margin-bottom: 2em;
+        display: flex;
+        justify-content: space-between;
+    }
+    nav a {
+        display: inline-block;
+    }
+    nav a, nav a:visited { color: #f4f4f4; }
+    nav a:hover { color: inherit; }
+    code {
+        display: block;
+        padding: 2em 1.5em;
+        margin: 0.5em -0.5em;
+        background: #dcb;
+        color: black;
+        text-shadow: none;
+        white-space: pre-line;
+        font-size: 1.66em;
+        line-height: 1.0;
+        font-family: var(--letter-font);
+        box-shadow: inset 0 0 3em #864, inset 0 0 0.5em #420;
+    }
+</style>
+
+<nav>
+    <a href="index.html">&#x2b39; Home</a>
+    <a href="acquisitions.html">&#x2a63; Acquisitions</a>
+</nav>
+<h1>Session 6</h1>
+<h2>2025 06 01</h2>
+<p>So we&#39;ve just been lured into the forest from our crossroads camp by a talking raven. It&#39;s huge, a wereraven, and we start to fight.</p>
+<p>Aryn came prepared, and tries to talk to the wereraven. It&#39;s sassy, but she manages to hurt it with some cutting words. A couple of flocks of ravens appear and attack us too. Aryn take a vampiric bite at some of them.</p>
+<p>During the fight we realise Strahd is lurking at the top of a nearby hill. He sees his wereraven transform into a raven and flee. Charity has copped enough damage from two raven flocks to take her out, but not before she shoots down the escaping wereraven.</p>
+<p>Aryn and the bot boys continue to swat ravens out of the air, as Strahd looks on with interest. He texts Charity &quot;looks like you&#39;re good at going down hur hur&quot;</p>
+<p>Thalion heals Charity back up as the gang whale on the remaining raven flocks. Strahd turns into a bat and flaps off, and we clean up the last ravens.</p>
+<p>Charity thanks Thalion for the heal, and looking at the raven blood on Aryn&#39;s chin, asks her if she&#39;s gotten creepier since we got here. Aryn shrugs and we look around for Ireena.</p>
+<p>We inspect the were-raven&#39;s corpse, but thankfully it&#39;s some naked old guy, not Ireena. We don&#39;t see Ismark around either, and we decide to walk back to camp. As we approach, a voice calls out to stop where we are and identify ourselves. Banhammer greets Ismark, who emerges from behind a rock with his crossbow.</p>
+<p>Ismark chides us for running off and leaving him alone. Thalion demands answers from Ismark -- why doesn&#39;t Strahd just teleport in and take Ireena? What&#39;s going on?</p>
+<p>Ismark is indignant but doesn&#39;t have any real answer; he&#39;s hoping that Strahd&#39;s own indulgence will given them the space to arrange some kind of real defence.</p>
+<p>The rest of the night passes without interruption. The next morning we head northerly, and come across the Vistani camp. They are friendly enough, but we notice some Vistani <em>taking note</em> of our arrival and disappearing into a tent as if to inform someone.</p>
+<p>Charity takes a photo of a particularly handsome Vistani in front of a tent and texts a tent-pitching slam to Strahd. The Vistani say that Madame Eva has anticipated our arrival, and we should relax and make ourselves at home.</p>
+<p>We mix with the encampment and listen in on some conversations. They&#39;re telling tales of times gone past; at the end of a story Banhammer is asked how he got his wooden head. He replies that he&#39;s always had it, he was a military unit and once knew a bunch military secrets that have been wiped from his head.</p>
+<p>The Vistani listen carefully and enhoy the tale. We then hear the story of the Mighty Wizard.</p>
+<pre><code>A mighty wizard came to this land over a year ago. I remember him like it was yesterday. He stood exactly where you&#39;re standing. A very charismatic man, he was. He thought he could rally the people of Barovia against the devil Strahd. He stirred them with thoughts of revolt and bore them to the castle en masse.
+
+&quot;When the vampire appeared, the wizard&#39;s peasant army fled in terror. A few stood their ground and were never seen again.
+
+&quot;The wizard and the vampire cast spells at each other. Their battle flew from the courtyards of Ravenloft to a precipice overlooking the falls. I saw the battle with my own eyes. Thunder shook the mountainside, and great rocks tumbled down upon the wizard, yet by his magic he survived. Lightning from the heavens struck the wizard, and again he stood his ground. But when the devil Strahd fell upon him, the wizard&#39;s magic couldn&#39;t save him. I saw him thrown a thousand feet to his death. I climbed down to the river to search for the wizard&#39;s body, to see if, you know, he had anything of value, but the River Ivlis had already spirited him away.
+</code></pre>
+<p>As the story concludes, a Vistani comes by and tells us that Mme Eva will see us now. Her tent is smoky and she cackles like an aged fortune tellers. An empty chair sits in front of her crystal ball.</p>
+<p>We all stare at each other for a bit, then Aryn finally decides she&#39;ll sit in the chair. Eva describes how curious it is that Aryn has found herself on the opposite side of this story to Strahd. She pulls out a deck of cards and deals out a cross.</p>
+<p>She asks for Aryn&#39;s palm, which she slashes with a dagger and smears Aryn&#39;s blood on her face.</p>
+<hr>
+<p><strong>First Card</strong>: The tale begins in blood and ink... this card speaks of ancient knowledge, a dark chronicle penned by the devil&#39;s own hand. Within its pages lies the devil’s beginnings, his path to damnation, and the truth he dares not face.</p>
+<p>The card is the <em>6 of Swords -- Berserker</em>: Find the Mad Dog&#39;s crypt. The treasure lies within, beneath blackened bones.</p>
+<hr>
+<p><strong>Second Card</strong>: A relic of sanctity, wielded in defiance of the night. Light once pure, now flickering in shadow.  This card guides you to a sacred relic, a symbol scorned by evil, hidden where faith trembles and hope dares not tread.</p>
+<p>The card is the <em>2 of Swords -- Paladin</em>: I see a sleeping prince, a servant of light and the brother of darkness. Where they were bound together in life, so too are they bound together in death. The treasure lies with him.</p>
+<hr>
+<p><strong>Third Card</strong>: Steel alone cannot pierce the dark, but... there exists a blade lost to time. Forged in defiance, tempered in Vengeance, a weapon was created to pierce the dark heart of evil. The card reveals where the burning fang of daylight lies waiting.</p>
+<p>The card is the <em>1 of Coins -- Swashbuckler</em>: I see the skeleton of a deadly warrior, lying on a bed of stone flanked by gargoyles.</p>
+<hr>
+<p><strong>Fourth Card</strong>: Even in a land drowned by sorrow, not all hearts have turned to ash. This card draws the thread of another marked by fate, one who walks a path not unlike your own. Called upon when the hour grows darkest, they may stand beside you when the final night falls.</p>
+<p>The card is the <em>Artifact</em>: Look for an entertaining man with a monkey. This man is more than he seems.</p>
+<hr>
+<p><strong>Fifth Card</strong>: Every road winds toward this final place, the beating heart of darkness... This card reveals where the devil waits—no mere man, but a nightmare wearing a name, patient and eternal. The center of the web where hope is caught and the helpless suffer. There, all paths end.</p>
+<p>The card is the <em>Beast</em>: The beast awaits you upon his dark throne, the inner sanctum of dread. There, he grants a final audience, but know this: few who stand before him ever leave unchanged… and fewer still leave at all.</p>
+<hr>
+<p>Mme Eva slumps to the table. After a few seconds we realise she&#39;s out. Aryn bravely and foolhardily pries a card out of the deck still clasped in Eva&#39;s hand; it&#39;s blank.</p>
+<blockquote>
+<p>AC: acquires a blank Scary Tarot Card</p>
+</blockquote>
+<p>We shuffle out of the now silent tent. The Vistani are still story-telling around the fire, but we decide to push on. Charity offers Sir Carrots as a mount for Ireena, and she accepts. We travel along the  bank of the river.</p>
+<p>We approach a bridge. There&#39;s a body swinging from a hangman&#39;s rope under the bridge. Banhammer pulls the figure up. Charity steps back, she doesn&#39;t want to be the first to look at the corpse&#39;s face. Banhammer is the first, and it&#39;s Aryn&#39;s face. Aryn wants to know if it&#39;s her body too, but as she pulls open the cloak and robes the body melts away, leaving just a skeleton.</p>
+<p>Charity tries to check the teeth, but the skull crushes under her hand. Banhammer pushes the skeleton back over the edge, and the rope snaps taught, dropping the body into the river, but we see something drop to the bridge. It&#39;s a tarot card of the Hanged Man. Aryn digs her blank card out of her pocket; it&#39;s still blank. Thalion collects the card from the bridge.</p>
+<blockquote>
+<p>T: acquires The Hanged Man tarot card</p>
+</blockquote>
+<p>From the bridge we travel north into the mountains, and find another fork in the road. There&#39;s a giant closed gate on the left / westerly fork, flanked by forest on one side and mountains on the other, and supported by headless stone statues. The statue heads are on the ground. When we approach the gates, they swing open.</p>
+<p>Charity send Strahd a picture of a statue head and says &quot;best head I can expect in this place&quot;. He agrees that I wouldn&#39;t be getting any from him.</p>
+<p>Thalion lays out our camp plan -- to go through the gates and pick a decent spot far enough away that the gates close, then the sound of the gates opening will warn us of approach from that direction.</p>
+<p>On the forest side of the gate we find a gallows and a stocks, both empty. They&#39;re old but still in good condition. We set up out camp nearby, thinking that we can use these structures for firewood if we need it. Turns out we don&#39;t, there&#39;s enough ruined fenceposts and whatnot around.</p>
+<p>Overnight we all hear Thalion&#39;s voice calling. We ignore it but we can&#39;t sleep. The next morning we&#39;re exhausted and find a skeleton in the stocks. It&#39;s grasping a tarot card -- the Fool, illustrated as a man in the stocks.</p>
+<blockquote>
+<p>T: acquires The Fool tarot card</p>
+</blockquote>
+<p>We wonder what tarot card we missed when we didn&#39;t search the Charity-faced first corpse.</p>
+
+<!-- post session customisations -->
+<script>
+    document.querySelectorAll('h2').forEach( h2 => {
+        let matches = h2.innerText.match(/^\s*(202\d)\s+(\d\d?)\s+(\d\d?)/)
+        if (matches) {
+            let date = new Date(matches[1] + '-' + matches[2] + "-" + matches[3])
+            h2.innerText = date.toLocaleDateString(undefined, {
+                weekday: "long",
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            })
+        }
+    })
+</script></div>
+</body>
+</html>
