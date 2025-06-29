@@ -45,6 +45,34 @@
         font-family: var(--letter-font);
         box-shadow: inset 0 0 3em #864, inset 0 0 0.5em #420;
     }
+    code.language-poster {
+        text-align: center;
+        text-shadow: 0 0 0.1em #dcb, 0 0 0.1em #dcb, 0 0 0.2em #dcb, 0 0 0.3em #dcb;
+        font-family: var(--poster-font);
+        line-height: 1.2;
+        color: rgba(40,20,0, 0.66);
+        position: relative;
+    }
+    code.language-poster:before {
+        transform: rotate(-0.5deg);
+        content: "";
+        position: absolute;
+        top: 1em;
+        left: 1em;
+        right: 1em;
+        bottom: 1em;
+        border: 0.25em double rgba(60,30,0, 0.1);
+    }
+    pre:has(code.language-poster) {
+        transform: rotate(1deg);
+    }
+    pre:has(code.language-poster):nth-child(even) {
+        transform: rotate(-1deg);
+    }
+    pre:has(code.language-poster):nth-child(3n) > code.language-poster:before {
+        transform: rotate(0.5deg);
+    }
+
 </style>
 
 <nav>
