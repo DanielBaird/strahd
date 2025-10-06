@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2025-08-24-Session10.md",
+                "file": "2025-10-05-Session11.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-08-24-Session10"
+              "title": "2025-10-05-Session11"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 211.5
+    "width": 200
   },
   "right": {
     "id": "89d3c7e730ab3047",
@@ -171,8 +171,9 @@
   },
   "active": "c471bb111c1b77cc",
   "lastOpenFiles": [
-    "2025-08-10-Session09.md",
     "2025-08-24-Session10.md",
+    "2025-10-05-Session11.md",
+    "2025-08-10-Session09.md",
     "2025-06-29-Session08.md",
     "2025-06-15-Session07.md",
     "2025-05-18-Session05.md",

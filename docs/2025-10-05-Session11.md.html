@@ -1,0 +1,328 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/*Box sizing (the nuclear option) */
+*, *:before, *:after {
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:border-box;
+    box-sizing: border-box;
+}
+
+/* Fix font rendering defaults */
+html, button {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-size: 100%;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, input,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+}
+
+/* IE fixes for HTML5 elements */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+strong, b, mark{
+    font-weight:bold;
+    font-style:inherit;
+}
+
+em, i, cite, q, address, dfn, var{
+    font-style:italic;
+    font-weight:inherit;
+}
+
+a, u, ins{
+    text-decoration:none;
+}
+
+pre, code, samp, kbd{
+    font-family:monospace;
+}
+
+iframe {
+  width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: none;
+}
+
+input,
+select,
+textarea{
+    font:inherit;
+}
+
+button {
+    cursor: pointer;
+}</style>
+
+<style>
+    body {
+        margin: 0;
+        padding: 3em 0 5em;
+        font-family: 'Book Antiqua', serif;
+        font-weight: 400;
+        line-height: 1.4;
+        font-size: 18px;
+    }
+
+    p { padding: 0.25em 0; }
+    b, strong { font-weight: bold; }
+    i, em { font-style: italic; }
+    code { font-family: sans-serif; }
+
+    h1, h2, h3, h4, h5 {
+        line-height: 1.1;
+        padding: 0.5em 0;
+    }
+    h1 { font-size: 1.953rem }
+    h2 { font-size: 1.563rem }
+    h3 { font-size: 1.25rem }
+    h4 { font-size: 1rem }
+    h5 { font-size: 0.8rem }
+
+    h1 { text-align: center }
+
+    .wrapper {
+        max-width: 40rem;
+        margin: 0 auto;
+        padding: 2em 2em 3em;
+    }
+
+    ul, ol {
+        padding: 0.3em 0 0.3em 1em;
+    }
+    li {
+        line-height: 1.1;
+        padding-bottom: 0.2em;
+    }
+</style>
+
+<style>
+    body {
+        /* --fancy-font: "UnifrakturCook", cursive; */
+        /* --fancy-font: "Berkshire Swash", serif; */
+        /* --fancy-font: "Pirata One", system-ui; */
+        /* --fancy-font: "UnifrakturMaguntia", cursive; */
+        /* --fancy-font: "Germania One", cursive; */
+        /* --fancy-font: "Aguafina Script", cursive; */
+        /* --body-font: font-family: "Alegreya", serif; */
+        /* --fanciest-font: "UnifrakturMaguntia", serif; */
+        /* --letter-font: "Aguafina Script", serif; */
+        /* --letter-font: "Tangerine", serif; */
+        /* --poster-font: "Jim Nightshade", cursive; */
+        --fanciest-font: "UnifrakturMaguntia", serif;
+        --fanciest-font-best-s: "UnifrakturCook", serif;
+        --fancy-font: "Berkshire Swash", serif;
+        --body-font: "Alegreya", serif;
+        --letter-font: "Tangerine", serif;
+        --poster-font: "Germania One", cursive;
+        background-color: #000;
+        color: rgba(255,255,255, 0.9);
+        text-shadow: 0 0 0.15em #a00;
+        font-family: var(--body-font);
+        font-optical-sizing: auto;
+    }
+    .wrapper {
+        background-color: #111;
+        margin: -4rem auto -4rem;
+        padding: 6rem 4em 20rem 4.5em;
+        box-shadow: inset 0 -5em 3em #600, 0 -5em 8em #200;
+        position: relative;
+    }
+    /* .wrapper:after {
+        content: url(./images/town-sil.png);
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        height: 100px;
+        left: 0;
+        right: 0;
+    } */
+    @media screen and (max-width: 37rem) { .wrapper {
+        padding: 6rem 10vw 20rem 12vw;
+        box-shadow: inset 0 -5em 3em #500;
+    }}
+    @media screen and (max-width: 28rem) { .wrapper {
+        padding: 6rem 5vw 20rem 6vw;
+        box-shadow: inset 0 -5em 3em #400;
+    }}
+    a { color: #d33; }
+    a:visited { color: #a00; }
+    h1, h2 {
+        font-weight: normal;
+        text-shadow: 0 0.025em 0.08em red;
+    }
+</style>
+
+    <!-- google fonts links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Alegreya:ital,wght@0,400..900;1,400..900&family=Berkshire+Swash&family=Germania+One&family=Pirata+One&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&family=Jim+Nightshade&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="wrapper">
+<!-- pre session customisations -->
+<style>
+    h1 { font-size: 3rem; }
+    h1, h2 {
+        text-align: center;
+        font-weight: 400;
+        font-family: var(--fancy-font);
+    }
+    h1::first-letter {
+        font-size: 300%;
+        display: inline-block;
+        vertical-align: middle;
+        font-family: var(--fanciest-font-best-s);
+    }
+    blockquote {
+        border: 1px solid;
+        border-radius: 0.5em;
+        background: rgba(255,255,255,0.1);
+        padding: 0.25em 0.75em;
+        margin: 0.125em 0;
+    }
+    nav {
+        font-family: var(--fancy-font);
+        border: 1px solid #800;
+        border-width: 0 0 1px 0;
+        margin-bottom: 2em;
+        display: flex;
+        justify-content: space-between;
+    }
+    nav a {
+        display: inline-block;
+    }
+    nav a, nav a:visited { color: #f4f4f4; }
+    nav a:hover { color: inherit; }
+    code {
+        display: block;
+        padding: 2em 1.5em;
+        margin: 0.5em -0.5em;
+        background: #dcb;
+        color: black;
+        text-shadow: none;
+        white-space: pre-line;
+        font-size: 1.66em;
+        line-height: 1.0;
+        font-family: var(--letter-font);
+        box-shadow: inset 0 0 3em #864, inset 0 0 0.5em #420;
+    }
+    code.language-poster {
+        text-align: center;
+        text-shadow: 0 0 0.1em #dcb, 0 0 0.1em #dcb, 0 0 0.2em #dcb, 0 0 0.3em #dcb;
+        font-family: var(--poster-font);
+        line-height: 1.2;
+        color: rgba(40,20,0, 0.66);
+        position: relative;
+    }
+    code.language-poster:before {
+        transform: rotate(-0.5deg);
+        content: "";
+        position: absolute;
+        top: 1em;
+        left: 1em;
+        right: 1em;
+        bottom: 1em;
+        border: 0.25em double rgba(60,30,0, 0.1);
+    }
+    pre:has(code.language-poster) {
+        transform: rotate(1deg);
+    }
+    pre:has(code.language-poster):nth-child(even) {
+        transform: rotate(-1deg);
+    }
+    pre:has(code.language-poster):nth-child(3n) > code.language-poster:before {
+        transform: rotate(0.5deg);
+    }
+
+</style>
+
+<nav>
+    <a href="index.html">&#x2b39; Home</a>
+    <a href="acquisitions.html">&#x2a63; Acquisitions</a>
+</nav>
+<h1>Session 11</h1>
+<h2>2025 10 05</h2>
+<p>So at the end of last session we had defeated the outer defences of the winery, and accepted the surrender of Glen the druid recent hire. We let Glen go, having believed his resignation from druidhood.</p>
+<p>Charity stays split from the group and enters the house through the side door while the rest of the group try the front door. Charity hides the bar for the door outside somewhere, then moves forward into the two-story tall fermentation room. There are scores of ravens here, watching Charity. There&#39;s a skittering twig creature that scurries under a barrel, and a hunched figure on the second floor walkway pouring a thick liquid into a barrel.</p>
+<p>The others were blocked by barred doors in the first room, and pulled back to try the loading dock. They find a door to the other side of the fermentation room, and are immediately spotted by the druid on the higher level.</p>
+<p>Banhammer runs up the stairs right into the druid&#39;s face, and is immediately blasted off the balcony by the druid&#39;s Thunderwave spell. Thalion follows up with Sacred Flame and Spiritual Weapon and Charity with an arrow.</p>
+<p>However a pile of twigblights pour out of a barrel. Banhammer shakes off their initial attack but Thalion gets a scratch. However the ravens in the room start attacking the twigblights and kill several. The druid seems more upset about the ravens than about us, which is a mistake as Thalion leaps up the stairs and kills her.</p>
+<p>More twigblights climb out of their barrel like it&#39;s a clown car. Aryn is biting into twig throats but is dangerously close to being overwhelmed until Thalion wipes out a few.</p>
+<p>Yet more twiggy bois come out of their barrel. Fewer than before, thankfully. Banhammer and our apparently allied ravens bust up some more as they appear as Charity takes out twigblights surrounding Thalion, freeing him up to take out twigblights surrounding Aryn.</p>
+<p>The ravens fly back up into rafters, and Charity tells them: &quot; I don&#39;t know if you had the free will to decide to join the fight, but you paid the price nonetheless. Thank you and I promise to stop shooting at you when I see you in the forests.&quot;</p>
+<p>Banhammer is wandering around on the balcony and pops open a door into the crane room over the loading dock. There&#39;s an old man standing on the crane itself, smeared with blood and leaves and looking crazy. When Banhammer looks in, the man jumps down the hole and runs off.</p>
+<p>Charity and the others share a look, but Banhammer shrugs and walks to the other end of the balcony. This time the rest of the group arrange ourselves to assist, as BH pauses for a second to look back at Charity, then flings the door open as loudly as he can and steps into the hallway beyond.</p>
+<p>Someone comes through another door into the hallway, accompanied by a tangle of vines that reach out to grab at Aryn and Banhammer, and we start fighting.</p>
+<p>It&#39;s cramped in the narrow stairs and corridor and Charity can&#39;t get a line of sight on the enemy, but the rest of the group manage to quickly destroy the first vineblight and we shuffle in a square or two and engage with a second vineblight and another druid.</p>
+<p>Aryn shakes free of her entangling vines and we end up all crowded into the corridor and take out the vineblight and druid. Charity closes the office door and gestures for Banhammer to open it; he politely declines and Charity opens the door again and steps into the room.</p>
+<p>There&#39;s a bit of office furniture and a strange contraption that doesn&#39;t seem to be for making wine. Charity realises it&#39;s a printing press for making bottle labels.</p>
+<p>We find a key on a loop of twine in the cabinet here.</p>
+<blockquote>
+<p>CF acquires key, curse level unknown</p>
+</blockquote>
+<p>Thalion opens the next room, it&#39;s a dining room and kitchen with a little pantry.</p>
+<p>The next room off the kitchen contains a big bed, chest etc, and is pretty clean so apparently has not been used by the druids. Thalion finds a key in a secret compartment on the bedframe; it unlocks the chest which contains a bunch of coins.</p>
+<blockquote>
+<p>T: acquires 50 gp, 270 ep (each electrum coin stamped with the profiled visage of Strahd von Zarovich), and 350 sp</p>
+</blockquote>
+<p>The desk here has a manifest of all the wine shipments for the last century. Almost all recent shipments are made to these location codes: <code>BV</code>, <code>BW</code>, <code>K</code>, <code>VISTANI</code>, which we decide is the Blood of the Vine, the Brown Whale or whatever, Kresk, and the Vistani camp.</p>
+<p>There are some other dormitory style bedrooms, one for younger kids with a black wooden nightmare horse toy made by Blinsky, and one for older kids.</p>
+<p>We deduce that the wine in the vats had been poisoned by the druids and Thalion casts a purity spell to clean it all up. We explore the remainder of the vineyard farmhouse and find the patio with the tubs, the cooper&#39;s room, and the bottle manufacturing room. That latter has stairs down and we head down into the cellar, where we find a bunch of bad guys.</p>
+
+<!-- post session customisations -->
+<script>
+    document.querySelectorAll('h2').forEach( h2 => {
+        let matches = h2.innerText.match(/^\s*(202\d)\s+(\d\d?)\s+(\d\d?)/)
+        if (matches) {
+            let date = new Date(matches[1] + '-' + matches[2] + "-" + matches[3])
+            h2.innerText = date.toLocaleDateString(undefined, {
+                weekday: "long",
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            })
+        }
+    })
+</script></div>
+</body>
+</html>
