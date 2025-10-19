@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2025-10-19-Session12.md",
+                "file": "2025-10-05-Session11.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-10-19-Session12"
+              "title": "2025-10-05-Session11"
             }
           }
         ]
@@ -74,13 +74,11 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 241.51103591918945,
-    "collapsed": true
+    "width": 241.51103591918945
   },
   "right": {
     "id": "89d3c7e730ab3047",
@@ -173,8 +171,8 @@
   },
   "active": "c471bb111c1b77cc",
   "lastOpenFiles": [
-    "2025-10-05-Session11.md",
     "2025-10-19-Session12.md",
+    "2025-10-05-Session11.md",
     "2025-08-24-Session10.md",
     "2025-08-10-Session09.md",
     "2025-06-29-Session08.md",
