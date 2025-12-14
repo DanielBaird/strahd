@@ -1,0 +1,357 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/*Box sizing (the nuclear option) */
+*, *:before, *:after {
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:border-box;
+    box-sizing: border-box;
+}
+
+/* Fix font rendering defaults */
+html, button {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-size: 100%;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, input,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+}
+
+/* IE fixes for HTML5 elements */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+strong, b, mark{
+    font-weight:bold;
+    font-style:inherit;
+}
+
+em, i, cite, q, address, dfn, var{
+    font-style:italic;
+    font-weight:inherit;
+}
+
+a, u, ins{
+    text-decoration:none;
+}
+
+pre, code, samp, kbd{
+    font-family:monospace;
+}
+
+iframe {
+  width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: none;
+}
+
+input,
+select,
+textarea{
+    font:inherit;
+}
+
+button {
+    cursor: pointer;
+}</style>
+
+<style>
+    body {
+        margin: 0;
+        padding: 3em 0 5em;
+        font-family: 'Book Antiqua', serif;
+        font-weight: 400;
+        line-height: 1.4;
+        font-size: 18px;
+    }
+
+    p { padding: 0.25em 0; }
+    b, strong { font-weight: bold; }
+    i, em { font-style: italic; }
+    code { font-family: sans-serif; }
+
+    h1, h2, h3, h4, h5 {
+        line-height: 1.1;
+        padding: 0.5em 0;
+    }
+    h1 { font-size: 1.953rem }
+    h2 { font-size: 1.563rem }
+    h3 { font-size: 1.25rem }
+    h4 { font-size: 1rem }
+    h5 { font-size: 0.8rem }
+
+    h1 { text-align: center }
+
+    .wrapper {
+        max-width: 40rem;
+        margin: 0 auto;
+        padding: 2em 2em 3em;
+    }
+
+    ul, ol {
+        padding: 0.3em 0 0.3em 1em;
+    }
+    li {
+        line-height: 1.1;
+        padding-bottom: 0.2em;
+    }
+</style>
+
+<style>
+    body {
+        /* --fancy-font: "UnifrakturCook", cursive; */
+        /* --fancy-font: "Berkshire Swash", serif; */
+        /* --fancy-font: "Pirata One", system-ui; */
+        /* --fancy-font: "UnifrakturMaguntia", cursive; */
+        /* --fancy-font: "Germania One", cursive; */
+        /* --fancy-font: "Aguafina Script", cursive; */
+        /* --body-font: font-family: "Alegreya", serif; */
+        /* --fanciest-font: "UnifrakturMaguntia", serif; */
+        /* --letter-font: "Aguafina Script", serif; */
+        /* --letter-font: "Tangerine", serif; */
+        /* --poster-font: "Jim Nightshade", cursive; */
+        --fanciest-font: "UnifrakturMaguntia", serif;
+        --fanciest-font-best-s: "UnifrakturCook", serif;
+        --fancy-font: "Berkshire Swash", serif;
+        --body-font: "Alegreya", serif;
+        --handwritten-font: "Germania One", cursive;
+        --letter-font: "Tangerine", serif;
+        --poster-font: "Germania One", cursive;
+        background-color: #000;
+        color: rgba(255,255,255, 0.9);
+        text-shadow: 0 0 0.15em #a00;
+        font-family: var(--body-font);
+        font-optical-sizing: auto;
+    }
+    .wrapper {
+        background-color: #111;
+        margin: -4rem auto -4rem;
+        padding: 6rem 4em 20rem 4.5em;
+        box-shadow: inset 0 -5em 3em #600, 0 -5em 8em #200;
+        position: relative;
+    }
+    .wrapper:after {
+        content: '';
+        background-image: url(./images/castle-silhouette-480.png), url(./images/hill-right.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 1em 0, 100% 0;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        height: 150px;
+        left: 0;
+        right: 0;
+    }
+    @media screen and (max-width: 37rem) { .wrapper {
+        padding: 6rem 10vw 20rem 12vw;
+        box-shadow: inset 0 -5em 3em #500;
+    }}
+    @media screen and (max-width: 28rem) { .wrapper {
+        padding: 6rem 5vw 20rem 6vw;
+        box-shadow: inset 0 -5em 3em #400;
+    }}
+    a { color: #d33; }
+    a:visited { color: #a00; }
+    h1, h2 {
+        font-weight: normal;
+        text-shadow: 0 0.025em 0.08em red;
+    }
+</style>
+
+    <!-- google fonts links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Alegreya:ital,wght@0,400..900;1,400..900&family=Berkshire+Swash&family=Germania+One&family=Pirata+One&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&family=Jim+Nightshade&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="wrapper">
+<!-- pre session customisations -->
+<style>
+    h1 { font-size: 3rem; }
+    h1, h2 {
+        text-align: center;
+        font-weight: 400;
+        font-family: var(--fancy-font);
+    }
+    h1::first-letter {
+        font-size: 300%;
+        display: inline-block;
+        vertical-align: middle;
+        font-family: var(--fanciest-font-best-s);
+    }
+    blockquote {
+        border: 1px solid;
+        border-radius: 0.5em;
+        background: rgba(255,255,255,0.1);
+        padding: 0.25em 0.75em;
+        margin: 0.125em 0;
+    }
+    nav {
+        font-family: var(--fancy-font);
+        border: 1px solid #800;
+        border-width: 0 0 1px 0;
+        margin-bottom: 2em;
+        display: flex;
+        justify-content: space-between;
+    }
+    nav a {
+        display: inline-block;
+    }
+    nav a, nav a:visited { color: #f4f4f4; }
+    nav a:hover { color: inherit; }
+    /* code is hand-written text */
+    code {
+        display: inline-block;
+        padding: 0.1em 0.2em;
+        margin: 0 0.1em;
+        border-radius: 0.1em;
+        text-shadow: none;
+        background: #dcb;
+        color: #333;
+        line-height: 1.0;
+        font-family: var(--handwritten-font);
+    }
+    /* pre code is (block formatted) letters and posters */
+    pre code {
+        display: block;
+        padding: 2em 1.5em;
+        margin: 0.5em -0.5em;
+        background: #dcb;
+        color: black;
+        text-shadow: none;
+        white-space: pre-line;
+        font-size: 1.66em;
+        line-height: 1.0;
+        font-family: var(--letter-font);
+        box-shadow: inset 0 0 3em #864, inset 0 0 0.5em #420;
+    }
+    pre code.language-poster {
+        text-align: center;
+        text-shadow: 0 0 0.1em #dcb, 0 0 0.1em #dcb, 0 0 0.2em #dcb, 0 0 0.3em #dcb;
+        font-family: var(--poster-font);
+        line-height: 1.2;
+        color: rgba(40,20,0, 0.66);
+        position: relative;
+    }
+    pre code.language-poster:before {
+        transform: rotate(-0.5deg);
+        content: "";
+        position: absolute;
+        top: 1em;
+        left: 1em;
+        right: 1em;
+        bottom: 1em;
+        border: 0.25em double rgba(60,30,0, 0.1);
+    }
+    pre:has(code.language-poster) {
+        transform: rotate(1deg);
+    }
+    pre:has(code.language-poster):nth-child(even) {
+        transform: rotate(-1deg);
+    }
+    pre:has(code.language-poster):nth-child(3n) > code.language-poster:before {
+        transform: rotate(0.5deg);
+    }
+
+</style>
+
+<nav>
+    <a href="index.html">&#x2b39; Home</a>
+    <a href="acquisitions.html">&#x2a63; Acquisitions</a>
+</nav>
+<h1>Session 15</h1>
+<h2>2025 12 07</h2>
+<p>We scoop up Elvis the were-raven and head for the farmhouse. When we arrive we&#39;re met at the door, and we hand over Elvis to his family&#39;s more healing oriented family members.</p>
+<p>We describe how we did indeed find a druid ceremony that we interrupted, and chased off Strahd, and also cut down an evil tree that was on the hill too. Then we realised Vistani had taken Elvis, but we caught up with them eventually and took him back.</p>
+<p>They&#39;re thankful and mention that the Kresk shipment is ready to go if we wanted to take it ourselves.</p>
+<p>We hand back the grow gem, and get taught the secret handshakes of the Keepers Of The Feather so we can recognise them, in human form at least.</p>
+<p>Davian&#39;s group includes the following people:</p>
+<ul>
+<li>Davian Martikov himself</li>
+<li>Adrian, his eldest son</li>
+<li>Elvis, his youngest son</li>
+<li>Stefania, his adult daughter</li>
+<li>Dag Tomescu, Stefania&#39;s husband</li>
+</ul>
+<p>We accept the Kresk wine delivery cart and head out, with a driver and draft horse. Davian reminds us that everyone here are cursed and we should look out for ourselves and trust no-one.</p>
+<p>We trundle along relatively uneventfully until we come to the bridge to Kresk, where we come across someone carting across from the other side. Aryn recognises Morgantha, the crazy-ish lady who sold us the dream pastries back in Borovia. Her hand cart is loaded into the back of her larger cart, along with other covered goods.</p>
+<p>&quot;Second time this week we&#39;ve run into each other! Uncommon occurrence in these parts, you guys must really be travelling!&quot; She chats with Aryn a little. Aryn notices our driver is avoiding meeting M&#39;s eyes.</p>
+<p>Charity asks M what the secret ingredient is in the pies. She says it&#39;s love. Charity (thinking of her Find Familiar ingredients) chats about herbs for a minute and gets tips on where to collect them.</p>
+<p>She tries to pitch us on more cakes but we decline, and we part ways. We head over the bridge. As soon as M is out of earshot, Aryn asks the driver about her. They advise that we should just expect people to be bad, even when they&#39;re nice to you.</p>
+<p>Late that day we get to the square stone gatehouses at Kresk, where we left Ireena two days ago. The gate guards summon the master of Kresk, who shows up, and without much conversation commands the 12&quot; tall iron gates opened for us to trundle through. The gates are closed promptly after us.</p>
+<p>Kresk is humble wood cottages sparsely scattered through a heavily tree-d area inside the walls. We finally meet Dimitri the Master of Kresk face to face, and he gives us a brief tour/description of the little town. It&#39;s basically a communist collective powered by being suspicious of strangers, and the internal forest supplies resources to the group.</p>
+<p>He says that if we&#39;re willing to contribute then we&#39;ll find people here more welcoming.</p>
+<p>We ask about the abbey, and how folk in Vallaki told us they&#39;d lost contact recently.</p>
+<p>He&#39;s confused because as far as he knows the abbey doesn&#39;t have any monks that would go on supply runs. He tells us about the abbey&#39;s history as the remnants of the Morninglord&#39;s worshippers went crazy and mad 100 years ago. Then a guy showed up and restarted the abbey, who is charismatic and ageless and might be Strahd in disguise. As fare as he knows the Abbot is the only known entity in the abbey.</p>
+<p>Recently there have been raids on the village by unknown shadowy figures they think are from the abbey. We ask after Ireena, and he looks embarassed and tells us that he&#39;s pretty sure the Abbot kidnapped Ireena.</p>
+<p>During the conversation Charity picks his pocket and then humorously hands him his Blinsky pocket watch back; his reaction tells us that there&#39;s something else going on. He won&#39;t tell us anything more and stumps off.</p>
+<p>We ask a gate guard, who tells us that his last son died of some illness a few days ago. Makes sense. We wave goodbye to the Kreskite gate guards and head for the abbey.</p>
+<p>The road climbs the steep hill that abbey is perched on the edge of. There are rusted hinges on the unlocked gate in the low wall. Smoke rises from abbey, indicating someone is home.</p>
+<p>Banhammer banhammers his way through the gates, which squeal as the rusted hinges move. Two guards come rushing from the gatehouse. They&#39;re horrifying looking.</p>
+<p>One is a 4&#39;9&quot; beardless dwarf-like creature who squats low, with a donkey ear and tail, and lion-like feet. The other is a slightly taller, half wolf-like and half lizard scales, with patches of cat-like fur.</p>
+<p>Otto, the donkey ear one, asks who we are. BH answers &quot;We&#39;re friends of Ireena, come to visit her.&quot;</p>
+<p>Zygfrek Belview, the scaled wolfish one, says &quot;We don&#39;t know them, nobody visits so there&#39;s no-one here. Why are you here?&quot; BH gets aggressive and brandishes his maul. Zygfrek runs off while Otto cowers.</p>
+<p>BH says &quot;Well we will come in and have a look. Okay?&quot; and Otto scuttles to the side. We walk past him carefully, and head to the main gates that lead into the abbey&#39;s inner courtyard. The doors are 10&quot; tall, and bear a plaque &quot;may her light cure all illness&quot;. Two guards stand in the mist on battlements above the gate.</p>
+<p>Banhammer doesn&#39;t bang the gates with his maul but instead pushes at the gates, and they creak open. We realise the guards are scarecrows.</p>
+<p>There&#39;s a well with bucket, and some alcoves and storage sheds are under the battlements around the borders of the area. A creature is chained to a post, a humanoid with bat wings and spider mandibles and a cloven hoof. As we enter, we hear screams from the sheds.</p>
+<p>We approach the chained creature. She flaps into the air to the point the chain pulls her down. She freaks out as we approach. Banhammer goes to release her but she attacks him. He shakes it off and smashes the chain, and she immediately flys off.</p>
+<p>We decide against opening the sheds and head for the northern wing where the smoke is coming from. We look into the well on the way. There&#39;s a creature in there clinging to the wall, with some spider eyes, a frog foot, and some other stuff that&#39;s hard to type quickly enough.</p>
+<p>We get to the door and Banhammer shoves it open. It leads to a large room with staircases up and down. a long table is neatly set.</p>
+<p>A woman is being lead around by a guy who must be the Abbot. She looks like Ireena. Charity calls to her.</p>
+
+<!-- post session customisations -->
+<script>
+    document.querySelectorAll('h2').forEach( h2 => {
+        let matches = h2.innerText.match(/^\s*(202\d)\s+(\d\d?)\s+(\d\d?)/)
+        if (matches) {
+            let date = new Date(matches[1] + '-' + matches[2] + "-" + matches[3])
+            h2.innerText = date.toLocaleDateString(undefined, {
+                weekday: "long",
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            })
+        }
+    })
+</script></div>
+</body>
+</html>
