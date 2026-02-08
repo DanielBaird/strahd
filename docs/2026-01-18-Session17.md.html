@@ -1,0 +1,389 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/*Box sizing (the nuclear option) */
+*, *:before, *:after {
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:border-box;
+    box-sizing: border-box;
+}
+
+/* Fix font rendering defaults */
+html, button {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-size: 100%;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, input,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+}
+
+/* IE fixes for HTML5 elements */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+strong, b, mark{
+    font-weight:bold;
+    font-style:inherit;
+}
+
+em, i, cite, q, address, dfn, var{
+    font-style:italic;
+    font-weight:inherit;
+}
+
+a, u, ins{
+    text-decoration:none;
+}
+
+pre, code, samp, kbd{
+    font-family:monospace;
+}
+
+iframe {
+  width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: none;
+}
+
+input,
+select,
+textarea{
+    font:inherit;
+}
+
+button {
+    cursor: pointer;
+}</style>
+
+<style>
+    body {
+        margin: 0;
+        padding: 3em 0 5em;
+        font-family: 'Book Antiqua', serif;
+        font-weight: 400;
+        line-height: 1.4;
+        font-size: 18px;
+    }
+
+    p { padding: 0.25em 0; }
+    b, strong { font-weight: bold; }
+    i, em { font-style: italic; }
+    code { font-family: sans-serif; }
+
+    h1, h2, h3, h4, h5 {
+        line-height: 1.1;
+        padding: 0.5em 0;
+    }
+    h1 { font-size: 1.953rem }
+    h2 { font-size: 1.563rem }
+    h3 { font-size: 1.25rem }
+    h4 { font-size: 1rem }
+    h5 { font-size: 0.8rem }
+
+    h1 { text-align: center }
+
+    .wrapper {
+        max-width: 40rem;
+        margin: 0 auto;
+        padding: 2em 2em 3em;
+    }
+
+    ul, ol {
+        padding: 0.3em 0 0.3em 1em;
+    }
+    li {
+        line-height: 1.1;
+        padding-bottom: 0.2em;
+    }
+</style>
+
+<style>
+    body {
+        /* --fancy-font: "UnifrakturCook", cursive; */
+        /* --fancy-font: "Berkshire Swash", serif; */
+        /* --fancy-font: "Pirata One", system-ui; */
+        /* --fancy-font: "UnifrakturMaguntia", cursive; */
+        /* --fancy-font: "Germania One", cursive; */
+        /* --fancy-font: "Aguafina Script", cursive; */
+        /* --body-font: font-family: "Alegreya", serif; */
+        /* --fanciest-font: "UnifrakturMaguntia", serif; */
+        /* --letter-font: "Aguafina Script", serif; */
+        /* --letter-font: "Tangerine", serif; */
+        /* --poster-font: "Jim Nightshade", cursive; */
+        --fanciest-font: "UnifrakturMaguntia", serif;
+        --fanciest-font-best-s: "UnifrakturCook", serif;
+        --fancy-font: "Berkshire Swash", serif;
+        --body-font: "Alegreya", serif;
+        --handwritten-font: "Germania One", cursive;
+        --letter-font: "Tangerine", serif;
+        --poster-font: "Germania One", cursive;
+        background-color: #000;
+        color: rgba(255,255,255, 0.9);
+        text-shadow: 0 0 0.15em #a00;
+        font-family: var(--body-font);
+        font-optical-sizing: auto;
+    }
+    .wrapper {
+        background-color: #111;
+        margin: -4rem auto -4rem;
+        padding: 6rem 4em 20rem 4.5em;
+        box-shadow: inset 0 -5em 3em #600, 0 -5em 8em #200;
+        position: relative;
+    }
+    .wrapper:after {
+        content: '';
+        background-image: url(./images/castle-silhouette-480.png), url(./images/hill-right.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 1em 0, 100% 0;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        height: 150px;
+        left: 0;
+        right: 0;
+    }
+    @media screen and (max-width: 37rem) { .wrapper {
+        padding: 6rem 10vw 20rem 12vw;
+        box-shadow: inset 0 -5em 3em #500;
+    }}
+    @media screen and (max-width: 28rem) { .wrapper {
+        padding: 6rem 5vw 20rem 6vw;
+        box-shadow: inset 0 -5em 3em #400;
+    }}
+    a { color: #d33; }
+    a:visited { color: #a00; }
+    h1, h2 {
+        font-weight: normal;
+        text-shadow: 0 0.025em 0.08em red;
+    }
+</style>
+
+    <!-- google fonts links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Alegreya:ital,wght@0,400..900;1,400..900&family=Berkshire+Swash&family=Germania+One&family=Pirata+One&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&family=Jim+Nightshade&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="wrapper">
+<!-- pre session customisations -->
+<style>
+    h1 { font-size: 3rem; }
+    h1, h2 {
+        text-align: center;
+        font-weight: 400;
+        font-family: var(--fancy-font);
+    }
+    h1::first-letter {
+        font-size: 300%;
+        display: inline-block;
+        vertical-align: middle;
+        font-family: var(--fanciest-font-best-s);
+    }
+    blockquote {
+        border: 1px solid;
+        border-radius: 0.5em;
+        background: rgba(255,255,255,0.1);
+        padding: 0.25em 0.75em;
+        margin: 0.125em 0;
+    }
+    nav {
+        font-family: var(--fancy-font);
+        border: 1px solid #800;
+        border-width: 0 0 1px 0;
+        margin-bottom: 2em;
+        display: flex;
+        justify-content: space-between;
+    }
+    nav a {
+        display: inline-block;
+    }
+    nav a, nav a:visited { color: #f4f4f4; }
+    nav a:hover { color: inherit; }
+    /* code is hand-written text */
+    code {
+        display: inline-block;
+        padding: 0.1em 0.2em;
+        margin: 0 0.1em;
+        border-radius: 0.1em;
+        text-shadow: none;
+        background: #dcb;
+        color: #333;
+        line-height: 1.0;
+        font-family: var(--handwritten-font);
+    }
+    /* pre code is (block formatted) letters and posters */
+    pre code {
+        display: block;
+        padding: 2em 1.5em;
+        margin: 0.5em -0.5em;
+        background: #dcb;
+        color: black;
+        text-shadow: none;
+        white-space: pre-line;
+        font-size: 1.66em;
+        line-height: 1.0;
+        font-family: var(--letter-font);
+        box-shadow: inset 0 0 3em #864, inset 0 0 0.5em #420;
+    }
+    /* pre code.language-chant is a chant or child's rhyme */
+    pre code.language-chant {
+        text-shadow: 0 0 0.1em #dcb, 0 0 0.1em #dcb, 0 0 0.2em #dcb, 0 0 0.3em #dcb;
+        font-size: 1.2em;
+        font-family: var(--poster-font);
+        line-height: 1.2;
+        color: rgba(40,20,0, 0.66);
+    }
+    /* pre code.language-poster is a poster */
+    pre code.language-poster {
+        text-align: center;
+        text-shadow: 0 0 0.1em #dcb, 0 0 0.1em #dcb, 0 0 0.2em #dcb, 0 0 0.3em #dcb;
+        font-family: var(--poster-font);
+        line-height: 1.2;
+        color: rgba(40,20,0, 0.66);
+        position: relative;
+    }
+    pre code.language-poster:before {
+        transform: rotate(-0.5deg);
+        content: "";
+        position: absolute;
+        top: 1em;
+        left: 1em;
+        right: 1em;
+        bottom: 1em;
+        border: 0.25em double rgba(60,30,0, 0.1);
+    }
+    pre:has(code.language-poster) {
+        transform: rotate(1deg);
+    }
+    pre:has(code.language-poster):nth-child(even) {
+        transform: rotate(-1deg);
+    }
+    pre:has(code.language-poster):nth-child(3n) > code.language-poster:before {
+        transform: rotate(0.5deg);
+    }
+
+</style>
+
+<nav>
+    <a href="index.html">&#x2b39; Home</a>
+    <a href="acquisitions.html">&#x2a63; Acquisitions</a>
+</nav>
+<h1>Session 17</h1>
+<h2>2025 01 18</h2>
+<p>We&#39;re standing in the hallway of the Abbey&#39;s eastern wing. Through the door we see a few garden plots inside a five foot wall. Some scarecrows guard the meagre crop but there are rabbits and other vermin in the gardens.</p>
+<p>We walk around the gardens, but with nothing of note we head back through the jail/dorm to the northern wing, node politely to the creepy Abbot, and head down the stairs to find the wine cellar. It&#39;s stocked with Wizards of Wine product. We tap on all the barrels to reassure ourselves that they hold wine and not Ireena.</p>
+<p>Aryn notices the bottles just sitting on the shelf, with no shop-lifting prevention technology at all.</p>
+<blockquote>
+<p>A acquires two bottles of Red Dragon Crush wine </p>
+</blockquote>
+<p>There&#39;s nothing else to explore so we head back to talk to the Abbot. Aryn asks him about the body parts on the table in Clovin&#39;s room upstairs.</p>
+<p>A: What&#39;s the deal, why are there people parts in your house?</p>
+<p>&quot;I&#39;m trying to solve the Strahd problem by building him a wife. None of those parts were missed by their original owners.&quot;</p>
+<p>The Abbot claims that he&#39;s a grave robber and didn&#39;t kill anyone to get the parts.</p>
+<p>CF: So, what&#39;s the provenance of the lady who joins is in the room now?</p>
+<p>The Abbot confirms that the Ireena look-alike is his initial play at a wife for Strahd. Thalion demands an explanation for why she looks like out friend, and the Abbot turns to regard a portrait on the wall, depicting a man and a woman who looks a lot like Ireena. He tells us a piece of Strahd&#39;s history.</p>
+<hr>
+<p>In life, Strahd von Zarovich was a count, a prince, a soldier, and a conqueror. After the death of his father, King Barov, Strahd waged long, bloody wars against his family&#39;s enemies. He and his army cornered the last of these enemies in a remote mountain valley before slaying them all. Strahd named the valley Barovia, after his deceased father, and was so struck by its scenic beauty that he decided to settle there.</p>
+<p>Queen Ravenovia lamented the death of Barov and was fearful of Strahd. War had made him cold and arrogant. She kept her younger son, Sergei, away from the battlefield. Strahd envied the love and attention his mother visited upon his brother, so in Barovia he remained. Peace made Strahd restless, and he began to feel like his best years were behind him. Unwilling to go the way of his father, Strahd studied magic and forged a pact with the Dark Powers of the Shadowfell in return for the promise of immortality.</p>
+<p>Strahd scoured his conquered lands for wizards and artisans, brought them to the valley of Barovia, and commanded them to raise a castle to rival the magnificent fortresses of his ancestral homeland. Strahd named the castle Ravenloft, after his mother, to demonstrate his love for her. When it was complete, Strahd commanded his mother and brother to come to Barovia and stay with him. Sergei eventually took up residence at Ravenloft, but Ravenovia passed away while traveling to her namesake. In sorrowful disappointment, Strahd sealed his mother&#39;s body in a crypt beneath the castle.</p>
+<p>Strahd&#39;s attention soon turned to Tatyana, a young Barovian woman of fine lineage and remarkable beauty. Strahd believed her to be a worthy bride, and he lavished Tatyana with gifts and attention. Despite Strahd&#39;s efforts, she instead fell in love with the younger, warmer Sergei. Strahd&#39;s pride prevented him from standing in the way of the young couple&#39;s love until the day of Sergei and Tatyana&#39;s wedding, when Strahd gazed into a mirror and realized he had been a fool. Strahd murdered Sergei and drank his blood, sealing the evil pact between Strahd and the Dark Powers. He then chased Sergei&#39;s bride-to-be through the gardens, determined to make her accept and love him. Tatyana hurled herself off a castle balcony to escape Strahd&#39;s pursuit, plunging to her death. Treacherous castle guards, seizing the opportunity to rid the world of Strahd forever, shot their master with arrows.</p>
+<p>But Strahd did not die. The Dark Powers honored the pact they had made. The sky went black as Strahd turned on the guards, his eyes blazing red. He had become a vampire.</p>
+<p>After slaughtering the guards, Strahd saw the faces of his father and mother in the thunderclouds, looking down upon him and judging him. He had destroyed the family bloodline and doomed all of Barovia. The castle and the valley were spirited away, locked in a demiplane surrounded on all sides by deadly fog. For Strahd and his people, there would be no escape.</p>
+<p>Strahd has been the master of Ravenloft for centuries now. Since becoming a vampire, he has taken several consorts--none as beloved as Tatyana, but each a person of beauty. All of them he turned into vampire spawn. Although he feeds on the hapless souls of Barovia, they provide little nourishment and no comfort. From time to time, strangers from faraway lands are brought to his domain, to play the vampire&#39;s game of cat-and-mouse. Strahd savors these moments, for though these strangers offer him no lands to conquer, they aren&#39;t so easily destroyed and therefore provide a welcome diversion.</p>
+<p>Strahd believes that the key to his escaping Barovia lies in finding someone worthy to rule in his stead, but his arrogance are so indomitable that no one is ever good enough in his eyes. He believes in his cold heart that only a von Zarovich as great as he or his father could sway the Dark Powers to release him.</p>
+<hr>
+<p>Charity asks the Abbot about his own backstory.</p>
+<p>&quot;I am simply a servant of the Morninglord, seeking to serve the common people as best I can. I arrived here perhaps a scant century ago, and worked on helping the bellviews for a while.&quot;</p>
+<p>CF: And were you always a corpse mechanic?</p>
+<p>&quot;The Morninglord arranges for his servants to serve in the places where their skills can contribute the most.&quot;</p>
+<p>CF: So when do you think you&#39;ll be inviting Strahd to take possession of his new.. companion?</p>
+<p>&quot;Perfection takes time.&quot;</p>
+<p>It&#39;s late so we end up deciding to overnight at the abbey. There&#39;s a rabbit and turnip soup and we&#39;re invited to soup and wine. We spend the night in the Operating Room.</p>
+<p>We&#39;re inundated by the sounds of the wretched folk downstairs, and Charity and Aryn -- not as accustomed to sleeping in battlefield conditions -- don&#39;t get a decent rest.</p>
+<p>Next morning we head down to Kresk and knock on the Burgermeister&#39;s door. There&#39;s no answer, so we wander around a little. Charity finds a herb garden with exactly the right herbs she needs for her Find Familiar spell, and uses her special thieving Mage Hand to steal some.</p>
+<blockquote>
+<p>CF: acquires final herbs for Find Familiar spell</p>
+</blockquote>
+<p>We find a guard captain and inform them that we&#39;re back from the Abbey and spoke to the Abbot, and that we don&#39;t think the abbey is killing people at night the way the Burgermeister thought.</p>
+<p>The guard tells us the B and his wife will be at the shrine for another hour or two. We decide to go check it out, maybe they&#39;re sacrificing Ireena or something. Following the guard&#39;s directions we get to the gazebo with a wooden statue that serves Kresk as a shrine.</p>
+<p>The B and his wife are kneeling there. Thalion gets the sense that the spring and pool the shrine faces are holy and blessed by the Morninglord. We choose not to approach and head back along the road, asking anyone who we see about Ireena and her disappearance.</p>
+<p>Aryn leads the questioning but all we get is blank looks and stories about grave robbing. That takes some time and eventually we&#39;re in the little town square when the B and his wife arrive.</p>
+<p>There&#39;s some kind of disagreement between the two of them, apparently about us, concluding in the wife storming off to the house. The Burgermeister approaches us and asks how it went.</p>
+<p>He&#39;s not as convinced as us that the Abbey didn&#39;t take Ireena, but he does relate some detail about Ireena&#39;s disappearance.</p>
+<p>&quot;We&#39;d had dinner, and Ireena went for a post-dinner stroll in the evening air. She&#39;d set out on a loop around the village, but when she hadn&#39;t returned in an hour we went looking. No-one had seen her since she headed up the path.&quot;</p>
+<p>Thalion is super suspicious about this story.</p>
+<p>CF: It looked like you were arguing with your wife when you arrived, was that about something to do with Ireena perhaps?</p>
+<p>&quot;We&#39;re both upset from the recent loss of our child. She&#39;s a bit unstable.&quot;</p>
+<p>We glance at the house and see the blinds twitch.</p>
+<p>Banhammer loudly announces that he would <em>love</em> to join the Burgermeister and his wife for a visit, and barges into the house. Anna the Burgermeister&#39;s wife looks a little shocked. The corpse of a child lies on the dining room table.</p>
+<p>BH: Time for a chat?</p>
+<p>&quot;Of course not, get out you jackanape!&quot;</p>
+<p>Charity steps in through the door and curtseys badly, apologising for BH and claiming that the Burgermeister implied that we could talk to her about Ireena. Anna repeats the B&#39;s story.</p>
+<p>The child&#39;s body should be a few days old, but it&#39;s clear to us that it&#39;s less decayed than that. Banhammer calls out &quot;IREEEENA!&quot; in his loudest warcry voice. Anna is shocked and baffled that BH seems to think Ireena might be in the house. </p>
+<p>Thalion steps into the house and accuses Anna of doing some deal with Ireena to save her child. Anna sputters a bit but starts to demand we all leave. Thalion is fine with that and leaps at the Burgermeister, demanding answers. His threatening aura is plenty to get the info out of him.</p>
+<p>&quot;Alright! Strahd promised us our son back! I had no choice, how could I say no to exchanging a stranger for my own flesh and blood!&quot;</p>
+<p>Banhammer smashes his maul into the ground next to him.</p>
+<p>&quot;I don&#39;t know where she is, he&#39;s taken her already!&quot;</p>
+<p>The situation gets tense and he offers information in exchange for his life, that he says could save Ireena forever.</p>
+<p>He tells us that the shrine here in Kresk is particularly holy, and this the reason the Abbey is here at all. It&#39;s where Sergei and Tatiana were married, and it&#39;s said in the Kresk noble family that the waters could save Tatiana, and it&#39;s a tragedy that she was never able to make it here to use that power.</p>
+<p>If there&#39;s a relationship between Ireena and the shrine, then there could be some way the springwaters could save her from Strahd. </p>
+<p>Banhammer offers him a hand, but when he takes it BH breaks his arm.</p>
+<p>BH: That&#39;s what you get for betraying your community to Strahd. Be thankful we leave you with your life.</p>
+<p>It&#39;s morning in Kresk, and we think about our next moves.</p>
+
+<!-- post session customisations -->
+<script>
+    document.querySelectorAll('h2').forEach( h2 => {
+        let matches = h2.innerText.match(/^\s*(202\d)\s+(\d\d?)\s+(\d\d?)/)
+        if (matches) {
+            let date = new Date(matches[1] + '-' + matches[2] + "-" + matches[3])
+            h2.innerText = date.toLocaleDateString(undefined, {
+                weekday: "long",
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            })
+        }
+    })
+</script></div>
+</body>
+</html>

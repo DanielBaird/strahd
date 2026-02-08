@@ -204,96 +204,125 @@ button {
 </head>
 <body>
 <div class="wrapper">
-<!-- pre index customisations -->
+<!-- pre session customisations -->
 <style>
-    body {
-        text-align: center;
-    }
-    h1 {
-        font-size: 5rem;
-        font-family: var(--fanciest-font);
-        margin: 0 -2rem;
-    }
-    h1 small {
-        font-size: 50%;
-        line-height: 1.5;
-        font-family: var(--fancy-font);
-    }
-    h1 small i {
-        font-size: 50%;
-    }
-    h2 {
-        font-family: var(--fancy-font);
-    }
+    h1 { font-size: 3rem; }
     h1, h2 {
+        text-align: center;
         font-weight: 400;
-        text-shadow: 0 0.025em 0.08em red;
+        font-family: var(--fancy-font);
     }
-    li {
-        list-style: none;
+    h1::first-letter {
+        font-size: 300%;
+        display: inline-block;
+        vertical-align: middle;
+        font-family: var(--fanciest-font-best-s);
     }
+    blockquote {
+        border: 1px solid;
+        border-radius: 0.5em;
+        background: rgba(255,255,255,0.1);
+        padding: 0.25em 0.75em;
+        margin: 0.125em 0;
+    }
+    nav {
+        font-family: var(--fancy-font);
+        border: 1px solid #800;
+        border-width: 0 0 1px 0;
+        margin-bottom: 2em;
+        display: flex;
+        justify-content: space-between;
+    }
+    nav a {
+        display: inline-block;
+    }
+    nav a, nav a:visited { color: #f4f4f4; }
+    nav a:hover { color: inherit; }
+    /* code is hand-written text */
+    code {
+        display: inline-block;
+        padding: 0.1em 0.2em;
+        margin: 0 0.1em;
+        border-radius: 0.1em;
+        text-shadow: none;
+        background: #dcb;
+        color: #333;
+        line-height: 1.0;
+        font-family: var(--handwritten-font);
+    }
+    /* pre code is (block formatted) letters and posters */
+    pre code {
+        display: block;
+        padding: 2em 1.5em;
+        margin: 0.5em -0.5em;
+        background: #dcb;
+        color: black;
+        text-shadow: none;
+        white-space: pre-line;
+        font-size: 1.66em;
+        line-height: 1.0;
+        font-family: var(--letter-font);
+        box-shadow: inset 0 0 3em #864, inset 0 0 0.5em #420;
+    }
+    /* pre code.language-chant is a chant or child's rhyme */
+    pre code.language-chant {
+        text-shadow: 0 0 0.1em #dcb, 0 0 0.1em #dcb, 0 0 0.2em #dcb, 0 0 0.3em #dcb;
+        font-size: 1.2em;
+        font-family: var(--poster-font);
+        line-height: 1.2;
+        color: rgba(40,20,0, 0.66);
+    }
+    /* pre code.language-poster is a poster */
+    pre code.language-poster {
+        text-align: center;
+        text-shadow: 0 0 0.1em #dcb, 0 0 0.1em #dcb, 0 0 0.2em #dcb, 0 0 0.3em #dcb;
+        font-family: var(--poster-font);
+        line-height: 1.2;
+        color: rgba(40,20,0, 0.66);
+        position: relative;
+    }
+    pre code.language-poster:before {
+        transform: rotate(-0.5deg);
+        content: "";
+        position: absolute;
+        top: 1em;
+        left: 1em;
+        right: 1em;
+        bottom: 1em;
+        border: 0.25em double rgba(60,30,0, 0.1);
+    }
+    pre:has(code.language-poster) {
+        transform: rotate(1deg);
+    }
+    pre:has(code.language-poster):nth-child(even) {
+        transform: rotate(-1deg);
+    }
+    pre:has(code.language-poster):nth-child(3n) > code.language-poster:before {
+        transform: rotate(0.5deg);
+    }
+
 </style>
 
-<h1>
-    <small>The</small><br />
-    Curse of Strahd<br />
-    <small>
-        <i>&ndash; or &ndash;</i><br />
-        The Trials of Sir&nbsp;Carrots
-    </small>
-</h1>
+<nav>
+    <a href="index.html">&#x2b39; Home</a>
+    <a href="acquisitions.html">&#x2a63; Acquisitions</a>
+</nav>
+<h1>Session 18</h1>
+<h2>2025 02 08</h2>
+<p>It&#39;s morning in Kresk, we just and we think about our next moves.</p>
 
-<p>
-    An improvised retelling of the story of Strahd, his curse, and the unfortunate souls who get mixed up with him.
-</p><p>
-    Featuring misdeeds, misgivings, and the occasional misplacement of a faithful donkey companion.
-</p>
-
-<br />
-
-<h2><a href="acquisitions.html">Acquisitions</a></h2>
-
-<h2>Sessions</h2>
-
-<ul>
-<li><a href="2025-03-16-Session01.md.html">2025-03-16-Session01.md.html</a></li>
-<li><a href="2025-03-30-Session02.md.html">2025-03-30-Session02.md.html</a></li>
-<li><a href="2025-04-13-Session03.md.html">2025-04-13-Session03.md.html</a></li>
-<li><a href="2025-04-27-Session04.md.html">2025-04-27-Session04.md.html</a></li>
-<li><a href="2025-05-18-Session05.md.html">2025-05-18-Session05.md.html</a></li>
-<li><a href="2025-06-01-Session06.md.html">2025-06-01-Session06.md.html</a></li>
-<li><a href="2025-06-15-Session07.md.html">2025-06-15-Session07.md.html</a></li>
-<li><a href="2025-06-29-Session08.md.html">2025-06-29-Session08.md.html</a></li>
-<li><a href="2025-08-10-Session09.md.html">2025-08-10-Session09.md.html</a></li>
-<li><a href="2025-08-24-Session10.md.html">2025-08-24-Session10.md.html</a></li>
-<li><a href="2025-10-05-Session11.md.html">2025-10-05-Session11.md.html</a></li>
-<li><a href="2025-10-19-Session12.md.html">2025-10-19-Session12.md.html</a></li>
-<li><a href="2025-11-02-Session13.md.html">2025-11-02-Session13.md.html</a></li>
-<li><a href="2025-11-09-Session14.md.html">2025-11-09-Session14.md.html</a></li>
-<li><a href="2025-12-07-Session15.md.html">2025-12-07-Session15.md.html</a></li>
-<li><a href="2025-12-14-Session16.md.html">2025-12-14-Session16.md.html</a></li>
-<li><a href="2026-01-18-Session17.md.html">2026-01-18-Session17.md.html</a></li>
-<li><a href="2026-02-08-Session18.md.html">2026-02-08-Session18.md.html</a></li>
-<!-- post index customisations -->
-</ul>
+<!-- post session customisations -->
 <script>
-    document.querySelectorAll('li a').forEach( li_a => {
-        console.log(li_a.innerText)
-        let matches = li_a.innerText.match(/^(202\d-\d\d?-\d\d?)(\-?)(.+?)(\d+)\.md\.html$/)
+    document.querySelectorAll('h2').forEach( h2 => {
+        let matches = h2.innerText.match(/^\s*(202\d)\s+(\d\d?)\s+(\d\d?)/)
         if (matches) {
-            let newText = []
-            newText.push(matches[3])
-            newText.push(matches[4])
-            newText.push("-")
-            let date = new Date(matches[1])
-            newText.push(date.toLocaleDateString(undefined, {
+            let date = new Date(matches[1] + '-' + matches[2] + "-" + matches[3])
+            h2.innerText = date.toLocaleDateString(undefined, {
                 weekday: "long",
                 day: "numeric",
                 month: "long",
                 year: "numeric"
-            }))
-            console.log(newText)
-            li_a.innerText = newText.join(" ")
+            })
         }
     })
 </script></div>

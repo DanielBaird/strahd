@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "6c2bdd1e3d87614f",
+        "id": "ef91579066beaaaf",
         "type": "tabs",
         "children": [
           {
-            "id": "e374e9c361fca16c",
+            "id": "7fb8f29d0c19eee2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2025-12-14-Session16.md",
+                "file": "2026-02-08-Session18.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-12-14-Session16"
+              "title": "2026-02-08-Session18"
             }
           }
         ]
@@ -169,14 +169,16 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e374e9c361fca16c",
+  "active": "7fb8f29d0c19eee2",
   "lastOpenFiles": [
-    "2025-06-29-Session08.md",
-    "2025-12-14-Session16.md",
+    "2026-01-18-Session17.md",
+    "2026-02-08-Session18.md",
     "2025-06-01-Session06.md",
-    "2025-05-18-Session05.md",
-    "2025-04-27-Session04.md",
     "2025-04-13-Session03.md",
+    "2025-04-27-Session04.md",
+    "2025-12-14-Session16.md",
+    "2025-06-29-Session08.md",
+    "2025-05-18-Session05.md",
     "2025-12-07-Session15.md",
     "Untitled 1.base",
     "Untitled.base",
