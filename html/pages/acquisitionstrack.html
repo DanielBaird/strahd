@@ -243,6 +243,11 @@ button {
         margin-left: -5rem;
         width: 4rem;
     }
+    .item { clear: both; }
+    .item .gain, .item .loss {
+        float: right;
+        clear: right;
+    }
 </style>
 
 <nav>
@@ -252,6 +257,8 @@ button {
 <h1>Tracked Acquisitions</h1>
 
 <script>
+    // -----------------------------------------------
+    // -----------------------------------------------
     const shy = '\u00AD'
     const knownChars = {
         'CF': { nick: 'Charity',
@@ -273,13 +280,13 @@ button {
         '??':  { nick: 'unknown', color: '#866' }
     }
 
-    const acquireSynonyms = [
+    const gainSynonyms = [
         'acquires',
         'gets',
         'finds'
     ]
 
-    const relinquishSynonyms = [
+    const lossSynonyms = [
         'relinquishes',
         'loses',
         'eats',
@@ -289,7 +296,8 @@ button {
     const acqRegex = /^\s*((\w+)\:)?\s*(.*)\s*$/
 
     let acqEventList = []
-
+    // -----------------------------------------------
+    // -----------------------------------------------
     function addAcq(source, parentElement) {
         const matches = source.match(acqRegex)
         const info = matches[3]
@@ -314,7 +322,7 @@ button {
 
         parentElement.append(acq)
     }
-
+    // -----------------------------------------------
     function handlePage(url) {
         let acqs = []
         let pageFetch = fetch(url)
@@ -331,18 +339,14 @@ button {
 
                 // parse the blockquote into acquisition data
                 bqList.forEach( acq => {
-                    acqEventList += parseEvent(acq)
-                })
-
-                // add the blockquotes to the page
-                const section = document.querySelector('section[title="' + url + '"]')
-                bqList.forEach( acq => {
-                    addAcq(acq.innerText, section)
+                    event = parseEvent(acq)
+                    event.session = url
+                    acqEventList.push( event )
                 })
             })
         })
     }
-
+    // -----------------------------------------------
     function parseEvent(htmlNode) {
         event = {}
         const source = htmlNode.innerText
@@ -353,13 +357,27 @@ button {
         const charNick = charData?.nick || charCode
 
         event.raw = source
+        event.charCode = charCode
         event.charNick = charNick
         event.info = info
-        console.log(event)
-        console.log(htmlNode.innerText)
-        
-    }
 
+        // is this a gain or loss
+        const gSynonym = gainSynonyms.find(s => info.startsWith(s))
+        if (gSynonym) {
+            event.gain = true
+            event.item = info.substr(gSynonym.length).trim()
+        }
+        const lSynonym = lossSynonyms.find(s => info.startsWith(s))
+        if (lSynonym) {
+            event.loss = true
+            event.item = info.substr(lSynonym.length).trim()
+        }
+        event.itemName = getItemName(event.item)
+        event.confusing = (!!event.gain === !!event.loss)
+
+        return event
+    }
+    // -----------------------------------------------
     // this regex and function are used to format session
     // filenames into nice titles
     const sessionRegex = /^(202\d)[-\s]+(\d\d?)[-\s]+(\d\d?)[-\s]+[Ss]ession\s*(\d+)(.*)$/
@@ -373,40 +391,152 @@ button {
         })
         return ['Session', +session, '-', niceDate].join(' ')
     }
+    // -----------------------------------------------
+    function sessionParser(sessionFilename) {
+        const [match, year, month, day, session] = sessionFilename.match(sessionRegex)
+        return {year, month, day, session}
+    }
+    // -----------------------------------------------
+    function getItemName(itemString) {
+        let newName = itemString || ""
+        newName = newName.trim()
+        newName = newName.replace(/^[Tt]he\s*/, "") // remove leading "the"
+        newName = newName.replace(/\,.*/, "") // remove anything after a comma
+        return newName
+    }
+    // -----------------------------------------------
+    function getSessionName(sessionString, size="short") {
+        const sesh = sessionParser(sessionString)
+        if (size === "veryshort") {
+            return "s" + sesh.session
+        }
+        if (size === "short") {
+            return "Session " + sesh.session
+        }
+        let date = new Date(year + '-' + month + "-" + day)
+        let niceDate = date.toLocaleDateString(undefined, {
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        })
+        return ['Session', +session, '-', niceDate].join(' ')
+    }
+    // -----------------------------------------------
+    function render() {
+        // print the acquitition list sorted by user, then by item
+        let charList = []
+        acqEventList.forEach(e => {
+            if (!charList.includes(e.charNick)) charList.push(e.charNick)
+        })
+        charList.sort()
 
-    function addSections(list) {
-        list.forEach(sessionName => {
-            // make a section for this session
-            const sessionSection = document.createElement('section')
-            sessionSection.title = sessionName
+        charList.forEach(char => {
+
+            // if there's a section for this already, replace it
+            // otherwise make a fresh one
+            let charSection = document.querySelector('[data-char='+char+']')
+            if (charSection) {
+                charSection.innerHTML = ''
+            } else {
+                charSection = document.createElement('section')
+                charSection.setAttribute('data-char', char)
+            }
 
             // add a heading to the section
-            const name = sessionName.replace(sessionRegex, sessionNameReplacer)
-            const nameLink = document.createElement('a')
-            nameLink.innerText = name
-            nameLink.href = sessionName
-            let nameHead = document.createElement('h3')
-            nameHead.append(nameLink)
-            sessionSection.append(nameHead)
+            let charHead = document.createElement('h2')
+            charHead.innerHTML = char
+            charSection.append(charHead)
+
+            // pre-filter for this character's gain and loss events
+            let charGains = acqEventList.filter(ev => ev.gain && (ev.charNick === char))
+            let charLosses = acqEventList.filter(ev => ev.loss && (ev.charNick === char))
+
+            let retainedSection = document.createElement('section')
+            retainedSection.className = 'retained'
+
+            let lostSection = document.createElement('section')
+            lostSection.className = 'lost'
+
+            // go through gains and add them too the appropriate section
+            charGains.forEach(acq => {
+                const itemWrap = document.createElement('article')
+                itemWrap.className = 'item'
+
+                const gainSession = document.createElement('a')
+                gainSession.href = acq.session
+                gainSession.innerHTML = getSessionName(acq.session)
+                const gain = document.createElement('span')
+                gain.innerHTML = 'gained '
+                gain.className = 'gain'
+                gain.append(gainSession)
+                itemWrap.append(gain)
+
+                // look for a matching loss for this item. 
+                // if we find a loss, the item goes into
+                // lostSection. Otherwise retainedSection
+                let matchingLoss = charLosses.find(lossEvent => {
+                    return (lossEvent.itemName === acq.itemName)
+                })
+
+                if (matchingLoss) {
+                    const lossSession = document.createElement('a')
+                    lossSession.href = matchingLoss.session
+                    lossSession.innerHTML = getSessionName(matchingLoss.session)
+                    const loss = document.createElement('span')
+                    loss.innerHTML = 'lost '
+                    loss.className = 'loss'
+                    loss.append(lossSession)
+                    itemWrap.append(loss)
+
+                    lostSection.append(itemWrap)
+                } else {
+                    retainedSection.append(itemWrap)
+                }
+
+                // since the gained and lost bits are 
+                // float: right, they go in first ahead of 
+                // the item description 
+                const itemDesc = document.createElement('p')
+                itemDesc.className = 'name'
+                itemDesc.innerHTML = acq?.item
+
+                itemWrap.append(itemDesc)
+
+            })
+
+            charSection.append(retainedSection)
+            charSection.append(lostSection)
 
             // add this session's section to the page
-            document.querySelector('.wrapper').append(sessionSection)
+            document.querySelector('.wrapper').append(charSection)
+
         })
     }
-
+    // -----------------------------------------------
+    // -----------------------------------------------
     let pagesFetch = fetch('pages.json')
     pagesFetch.then( pagesResponse => {
         let pagesJson = pagesResponse.json()
-        pagesJson.then( pagesList => {
-            addSections(pagesList.pages)
-            let acqusitionsList = {}
+        pagesJson.then( async (pagesList) => {
             pagesList.pages.forEach( pageUrl => {
                 handlePage(pageUrl)
             })
-
         })
     })
 
+    setTimeout(() => {
+        render()
+    }, 1000)
+
+    // setTimeout(() => {
+    //     let debugPanel = document.createElement('pre')
+    //     debugPanel.innerHTML = JSON.stringify(acqEventList, "    ")
+    //     document.querySelector('.wrapper').append(debugPanel)
+    //     console.log('did it')
+    // }, 1000)
+    // -----------------------------------------------
+    // -----------------------------------------------
 </script>
 
 </div>
