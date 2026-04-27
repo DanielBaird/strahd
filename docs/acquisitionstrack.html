@@ -467,7 +467,7 @@ button {
                 gainSession.href = acq.session
                 gainSession.innerHTML = getSessionName(acq.session)
                 const gain = document.createElement('span')
-                gain.innerHTML = 'gained: '
+                gain.innerHTML = 'gained '
                 gain.className = 'gain'
                 gain.append(gainSession)
                 itemWrap.append(gain)
@@ -484,7 +484,7 @@ button {
                     lossSession.href = matchingLoss.session
                     lossSession.innerHTML = getSessionName(matchingLoss.session)
                     const loss = document.createElement('span')
-                    loss.innerHTML = 'lost: '
+                    loss.innerHTML = 'lost '
                     loss.className = 'loss'
                     loss.append(lossSession)
                     itemWrap.append(loss)
