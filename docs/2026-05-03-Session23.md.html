@@ -1,0 +1,352 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/*Box sizing (the nuclear option) */
+*, *:before, *:after {
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:border-box;
+    box-sizing: border-box;
+}
+
+/* Fix font rendering defaults */
+html, button {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-size: 100%;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, input,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+}
+
+/* IE fixes for HTML5 elements */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+strong, b, mark{
+    font-weight:bold;
+    font-style:inherit;
+}
+
+em, i, cite, q, address, dfn, var{
+    font-style:italic;
+    font-weight:inherit;
+}
+
+a, u, ins{
+    text-decoration:none;
+}
+
+pre, code, samp, kbd{
+    font-family:monospace;
+}
+
+iframe {
+  width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: none;
+}
+
+input,
+select,
+textarea{
+    font:inherit;
+}
+
+button {
+    cursor: pointer;
+}</style>
+
+<style>
+    body {
+        margin: 0;
+        padding: 3em 0 5em;
+        font-family: 'Book Antiqua', serif;
+        font-weight: 400;
+        line-height: 1.4;
+        font-size: 18px;
+    }
+
+    p { padding: 0.25em 0; }
+    b, strong { font-weight: bold; }
+    i, em { font-style: italic; }
+    code { font-family: sans-serif; }
+
+    h1, h2, h3, h4, h5 {
+        line-height: 1.1;
+        padding: 0.5em 0;
+    }
+    h1 { font-size: 1.953rem }
+    h2 { font-size: 1.563rem }
+    h3 { font-size: 1.25rem }
+    h4 { font-size: 1rem }
+    h5 { font-size: 0.8rem }
+
+    h1 { text-align: center }
+
+    .wrapper {
+        max-width: 40rem;
+        margin: 0 auto;
+        padding: 2em 2em 3em;
+    }
+
+    ul, ol {
+        padding: 0.3em 0 0.3em 1em;
+    }
+    li {
+        line-height: 1.1;
+        padding-bottom: 0.2em;
+    }
+</style>
+
+<style>
+    body {
+        /* --fancy-font: "UnifrakturCook", cursive; */
+        /* --fancy-font: "Berkshire Swash", serif; */
+        /* --fancy-font: "Pirata One", system-ui; */
+        /* --fancy-font: "UnifrakturMaguntia", cursive; */
+        /* --fancy-font: "Germania One", cursive; */
+        /* --fancy-font: "Aguafina Script", cursive; */
+        /* --body-font: font-family: "Alegreya", serif; */
+        /* --fanciest-font: "UnifrakturMaguntia", serif; */
+        /* --letter-font: "Aguafina Script", serif; */
+        /* --letter-font: "Tangerine", serif; */
+        /* --poster-font: "Jim Nightshade", cursive; */
+        --fanciest-font: "UnifrakturMaguntia", serif;
+        --fanciest-font-best-s: "UnifrakturCook", serif;
+        --fancy-font: "Berkshire Swash", serif;
+        --body-font: "Alegreya", serif;
+        --handwritten-font: "Germania One", cursive;
+        --letter-font: "Tangerine", serif;
+        --poster-font: "Germania One", cursive;
+        background-color: #000;
+        color: rgba(255,255,255, 0.9);
+        text-shadow: 0 0 0.15em #a00;
+        font-family: var(--body-font);
+        font-optical-sizing: auto;
+    }
+    .wrapper {
+        background-color: #111;
+        margin: -4rem auto -4rem;
+        padding: 6rem 4em 20rem 4.5em;
+        box-shadow: inset 0 -5em 3em #600, 0 -5em 8em #200;
+        position: relative;
+    }
+    .wrapper:after {
+        content: '';
+        background-image: url(./images/castle-silhouette-480.png), url(./images/hill-right.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 1em 0, 100% 0;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        height: 150px;
+        left: 0;
+        right: 0;
+    }
+    @media screen and (max-width: 37rem) { .wrapper {
+        padding: 6rem 10vw 20rem 12vw;
+        box-shadow: inset 0 -5em 3em #500;
+    }}
+    @media screen and (max-width: 28rem) { .wrapper {
+        padding: 6rem 5vw 20rem 6vw;
+        box-shadow: inset 0 -5em 3em #400;
+    }}
+    a { color: #d33; }
+    a:visited { color: #a00; }
+    h1, h2 {
+        font-weight: normal;
+        text-shadow: 0 0.025em 0.08em red;
+    }
+</style>
+
+    <!-- google fonts links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Alegreya:ital,wght@0,400..900;1,400..900&family=Berkshire+Swash&family=Germania+One&family=Pirata+One&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&family=Jim+Nightshade&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="wrapper">
+<!-- pre session customisations -->
+<style>
+    h1 { font-size: 3rem; }
+    h1, h2 {
+        text-align: center;
+        font-weight: 400;
+        font-family: var(--fancy-font);
+    }
+    h1::first-letter {
+        font-size: 300%;
+        display: inline-block;
+        vertical-align: middle;
+        font-family: var(--fanciest-font-best-s);
+    }
+    blockquote {
+        border: 1px solid;
+        border-radius: 0.5em;
+        background: rgba(255,255,255,0.1);
+        padding: 0.25em 0.75em;
+        margin: 0.125em 0;
+    }
+    nav {
+        font-family: var(--fancy-font);
+        border: 1px solid #800;
+        border-width: 0 0 1px 0;
+        margin-bottom: 2em;
+        display: flex;
+        justify-content: space-between;
+    }
+    nav a {
+        display: inline-block;
+    }
+    nav a, nav a:visited { color: #f4f4f4; }
+    nav a:hover { color: inherit; }
+    /* code is hand-written text */
+    code {
+        display: inline-block;
+        padding: 0.1em 0.2em;
+        margin: 0 0.1em;
+        border-radius: 0.1em;
+        text-shadow: none;
+        background: #dcb;
+        color: #333;
+        line-height: 1.0;
+        font-family: var(--handwritten-font);
+    }
+    /* pre code is (block formatted) letters and posters */
+    pre code {
+        display: block;
+        padding: 2em 1.5em;
+        margin: 0.5em -0.5em;
+        background: #dcb;
+        color: black;
+        text-shadow: none;
+        white-space: pre-line;
+        font-size: 1.66em;
+        line-height: 1.0;
+        font-family: var(--letter-font);
+        box-shadow: inset 0 0 3em #864, inset 0 0 0.5em #420;
+    }
+    /* pre code.language-chant is a chant or child's rhyme */
+    pre code.language-chant {
+        text-shadow: 0 0 0.1em #dcb, 0 0 0.1em #dcb, 0 0 0.2em #dcb, 0 0 0.3em #dcb;
+        font-size: 1.2em;
+        font-family: var(--poster-font);
+        line-height: 1.2;
+        color: rgba(40,20,0, 0.66);
+    }
+    /* pre code.language-poster is a poster */
+    pre code.language-poster {
+        text-align: center;
+        text-shadow: 0 0 0.1em #dcb, 0 0 0.1em #dcb, 0 0 0.2em #dcb, 0 0 0.3em #dcb;
+        font-family: var(--poster-font);
+        line-height: 1.2;
+        color: rgba(40,20,0, 0.66);
+        position: relative;
+    }
+    pre code.language-poster:before {
+        transform: rotate(-0.5deg);
+        content: "";
+        position: absolute;
+        top: 1em;
+        left: 1em;
+        right: 1em;
+        bottom: 1em;
+        border: 0.25em double rgba(60,30,0, 0.1);
+    }
+    pre:has(code.language-poster) {
+        transform: rotate(1deg);
+    }
+    pre:has(code.language-poster):nth-child(even) {
+        transform: rotate(-1deg);
+    }
+    pre:has(code.language-poster):nth-child(3n) > code.language-poster:before {
+        transform: rotate(0.5deg);
+    }
+
+</style>
+
+<nav>
+    <a href="index.html">&#x2b39; Home</a>
+    <a href="acquisitions.html">&#x2a63; Acquisitions</a>
+</nav>
+<h1>Session 23</h1>
+<p>2026 05 23</p>
+<p>We&#39;re not thinking about the sabretooth for now, and we&#39;re holding trick dice. We head back to the Bluewater.</p>
+<p>Gastonovitch sees us arrive and starts talking about how real men aren&#39;t scared of a dice game. Aryn takes the opponent&#39;s seat and calls a 2 gp bet. The crowd murmur a bit, that&#39;s a very high bet.</p>
+<p>Aryn goes in hard betting on six 4s. Gastonovich acts condescending, like Aryn doesn&#39;t understand the game and immediately calls her; Aryn loses a die and G high fives his offsiders.</p>
+<p>Aryn bids four 3s; G replies with four 5s and Aryn calls; Gastonovich loses a die this time.</p>
+<p>G bids two 3s — &quot;a soft one, just like YOU!&quot; with a roar of laughter. Aryn replies with three 4s, but G replies with four 4s. Aryn bids four 6s and gets called, losing another die.</p>
+<p>A bids two 1s, G bids two 2s, A bits three 3s, G three 5s, A four 5s. G thinks for a moment and bids five 5s. A jumps to one 6 and G looks frustrated. He falls back on aggression and tries two 6s, which A calls -- no 6s at all, so G loses a die.</p>
+<p>One 2, two 3s, two 5s and A calls G who loses again. The Gastonovich fan club are starting to lose some of their bravado.</p>
+<p>One 1, two 1s, two 5s, three 5s. Charity whispers into the crowd &quot;Gaston-the-bitch, lol&quot;. He&#39;s getting irate and blurts out one 6, which A calls and wins.</p>
+<p>G is down to two dice and is getting more and more agitated. He opens with three 6s. Aryn thinks for a moment and G crows about her discomfort. She bids four 6s, and wins! G has lost and is shocked for a bit before storming off sulkily. Aryn scoops up the pot and shouts the bar. Charity runs in at the head of the crowd shouting limitations: &quot;Bottom shelf only! No doubles! Only people here when Aryn made the claim!&quot;</p>
+<p>We spend the afternoon at the pub. Charity heads up to the room and works through the ceremony for an Owl familiar.</p>
+<p>Aryn asks around about Rictavio. He showed up out of nowhere a few years ago, and everyone she talks to has a different story about his history before arriving at Vallaki. They all agree that since arriving, he has hung around sponging drinks and telling stories. One guy points out that R has a sort of pattern; ordering lunch at the tavern but taking the food away. This guy once or twice happened to be walking behind him and says he seems to disappear.</p>
+<p>Aryn asks the bar staff about Ric&#39;s lunches. They always understood that he&#39;d take lunches over to Blinsky&#39;s but never had any real confirmation that&#39;s where he really would go.</p>
+<p>Upstairs, Charity hears some shouting through the window -- &quot;help, help!&quot;. She pocket-dimensions her owl and scurries downstairs, tagging her companions on the way through the noisy taproom. Once outside we can hear the calls again and head that way.</p>
+<p>A Vistani woman is stumbling down the road calling and begging for help, mostly ignored by the townsfolk. Charity tosses a spirit pokeball into the air that turns into her owl, and commands the owl to go scout.</p>
+<p>Meanwhile we step up to the woman and ask her what&#39;s wrong. She&#39;s a bit incoherent but we get the sense someone is doing something. Aryn looks into her eyes and Suggests that she Calms Down. Caught in Aryn&#39;s spell, she takes a breath and explains.</p>
+<p>&quot;A fisherman has taken my daughter.&quot; She explains this happened five-ish minutes ago, she had visited the lakeside with her 10 year old daughter, and on the way back to town a fisherman who they had seen at the lake followed them grabbed the kid, and took her back to the lake.</p>
+<p>She&#39;s exhausted by her journey so we get a description of the fisherman and tell her to catch up when she can. Then we go on ahead at a brisk trot.</p>
+<p>At the foot of the mountain rests a perfectly still, dark lake, reflecting the forest and mountain beyond. Three boats rest on the shore, and a lone fisherman sits in a boat out on the lake.</p>
+<p>We pile into a boat and start paddling out to the only fisherman we can see. He&#39;s hauling something out of the boat about to dump it into the water. Thalion sees the sack moving as he lifts it and dumps it into the lake. Banhammer and Charity dive out of the boat and swim over to the sack, working together to pull it back to the surface. It&#39;s too hard to untie so Charity whips out her dagger and slashes through the bag. The child inside struggles out but she is panicked and still struggling.</p>
+<p>Thalion and Aryn keep rowing the boat toward the fisherman. He&#39;s acting weird, kind of ignoring the group and looks like he&#39;s acting on autopilot, sitting passively with his rod over the side. This is pretty weird and Thalion decides to steer the boat over to the swimmers. </p>
+<p>Charity is too small to help much with the struggling kid but Banhammer manages to push the child over too the boat, and we all work to get the kid into the boat. She still isn&#39;t breathing but Thalion has handled this kind of thing before and soon has her coughing up all the water from her lungs. She&#39;s crying and upset but definitely alive.</p>
+<p>Aryn comforts the child, whose name is Arabelle. The rest of us look at the fisherman. He&#39;s continuing to largely ignore us and Banhammer hears him muttering to himself &quot;the lake demands a sacrifice&quot; over and over. He&#39;s almost catatonic with respect to any interaction with us. Charity looks at Thalion and asks &quot;can he be helped?&quot;.. Thalion shrugs and tries a Detect Magic. It pings on an item in his pocket, a crushed sheet of paper on which is written <code>The lake needs a sacrifice,  xoxo Strahd</code>. Thalion lights it and it burns in a flash.</p>
+<p>The guy blinks awake, puzzled by where he is and what&#39;s going on. We all head back to shore to talk; on the way there we realise probably-shirtless GigaChad is waiting on the shore.</p>
+
+<!-- post session customisations -->
+<script>
+    document.querySelectorAll('h2').forEach( h2 => {
+        let matches = h2.innerText.match(/^\s*(202\d)\s+(\d\d?)\s+(\d\d?)/)
+        if (matches) {
+            let date = new Date(matches[1] + '-' + matches[2] + "-" + matches[3])
+            h2.innerText = date.toLocaleDateString(undefined, {
+                weekday: "long",
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            })
+        }
+    })
+</script></div>
+</body>
+</html>
