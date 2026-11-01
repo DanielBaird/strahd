@@ -1,0 +1,379 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/*Box sizing (the nuclear option) */
+*, *:before, *:after {
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:border-box;
+    box-sizing: border-box;
+}
+
+/* Fix font rendering defaults */
+html, button {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-size: 100%;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, input,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+}
+
+/* IE fixes for HTML5 elements */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+strong, b, mark{
+    font-weight:bold;
+    font-style:inherit;
+}
+
+em, i, cite, q, address, dfn, var{
+    font-style:italic;
+    font-weight:inherit;
+}
+
+a, u, ins{
+    text-decoration:none;
+}
+
+pre, code, samp, kbd{
+    font-family:monospace;
+}
+
+iframe {
+  width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: none;
+}
+
+input,
+select,
+textarea{
+    font:inherit;
+}
+
+button {
+    cursor: pointer;
+}</style>
+
+<style>
+    body {
+        margin: 0;
+        padding: 3em 0 5em;
+        font-family: 'Book Antiqua', serif;
+        font-weight: 400;
+        line-height: 1.4;
+        font-size: 18px;
+    }
+
+    p { padding: 0.25em 0; }
+    b, strong { font-weight: bold; }
+    i, em { font-style: italic; }
+    code { font-family: sans-serif; }
+
+    h1, h2, h3, h4, h5 {
+        line-height: 1.1;
+        padding: 0.5em 0;
+    }
+    h1 { font-size: 1.953rem }
+    h2 { font-size: 1.563rem }
+    h3 { font-size: 1.25rem }
+    h4 { font-size: 1rem }
+    h5 { font-size: 0.8rem }
+
+    h1 { text-align: center }
+
+    .wrapper {
+        max-width: 40rem;
+        margin: 0 auto;
+        padding: 2em 2em 3em;
+    }
+
+    ul, ol {
+        padding: 0.3em 0 0.3em 1em;
+    }
+    li {
+        line-height: 1.1;
+        padding-bottom: 0.2em;
+    }
+</style>
+
+<style>
+    body {
+        /* --fancy-font: "UnifrakturCook", cursive; */
+        /* --fancy-font: "Berkshire Swash", serif; */
+        /* --fancy-font: "Pirata One", system-ui; */
+        /* --fancy-font: "UnifrakturMaguntia", cursive; */
+        /* --fancy-font: "Germania One", cursive; */
+        /* --fancy-font: "Aguafina Script", cursive; */
+        /* --body-font: font-family: "Alegreya", serif; */
+        /* --fanciest-font: "UnifrakturMaguntia", serif; */
+        /* --letter-font: "Aguafina Script", serif; */
+        /* --letter-font: "Tangerine", serif; */
+        /* --poster-font: "Jim Nightshade", cursive; */
+        --fanciest-font: "UnifrakturMaguntia", serif;
+        --fanciest-font-best-s: "UnifrakturCook", serif;
+        --fancy-font: "Berkshire Swash", serif;
+        --body-font: "Alegreya", serif;
+        --handwritten-font: "Germania One", cursive;
+        --letter-font: "Tangerine", serif;
+        --poster-font: "Germania One", cursive;
+        background-color: #000;
+        color: rgba(255,255,255, 0.9);
+        text-shadow: 0 0 0.15em #a00;
+        font-family: var(--body-font);
+        font-optical-sizing: auto;
+    }
+    .wrapper {
+        background-color: #111;
+        margin: -4rem auto -4rem;
+        padding: 6rem 4em 20rem 4.5em;
+        box-shadow: inset 0 -5em 3em #600, 0 -5em 8em #200;
+        position: relative;
+    }
+    .wrapper:after {
+        content: '';
+        background-image: url(./images/castle-silhouette-480.png), url(./images/hill-right.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 1em 0, 100% 0;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        height: 150px;
+        left: 0;
+        right: 0;
+    }
+    @media screen and (max-width: 37rem) { .wrapper {
+        padding: 6rem 10vw 20rem 12vw;
+        box-shadow: inset 0 -5em 3em #500;
+    }}
+    @media screen and (max-width: 28rem) { .wrapper {
+        padding: 6rem 5vw 20rem 6vw;
+        box-shadow: inset 0 -5em 3em #400;
+    }}
+    a { color: #d33; }
+    a:visited { color: #a00; }
+    h1, h2 {
+        font-weight: normal;
+        text-shadow: 0 0.025em 0.08em red;
+    }
+</style>
+
+    <!-- google fonts links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Alegreya:ital,wght@0,400..900;1,400..900&family=Berkshire+Swash&family=Germania+One&family=Pirata+One&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&family=Jim+Nightshade&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="wrapper">
+<!-- pre session customisations -->
+<style>
+    h1 { font-size: 3rem; }
+    h1, h2 {
+        text-align: center;
+        font-weight: 400;
+        font-family: var(--fancy-font);
+    }
+    h1::first-letter {
+        font-size: 300%;
+        display: inline-block;
+        vertical-align: middle;
+        font-family: var(--fanciest-font-best-s);
+    }
+    blockquote {
+        border: 1px solid;
+        border-radius: 0.5em;
+        background: rgba(255,255,255,0.1);
+        padding: 0.25em 0.75em;
+        margin: 0.125em 0;
+    }
+    nav {
+        font-family: var(--fancy-font);
+        border: 1px solid #800;
+        border-width: 0 0 1px 0;
+        margin-bottom: 2em;
+        display: flex;
+        justify-content: space-between;
+    }
+    nav a {
+        display: inline-block;
+    }
+    nav a, nav a:visited { color: #f4f4f4; }
+    nav a:hover { color: inherit; }
+    /* code is hand-written text */
+    code {
+        display: inline-block;
+        padding: 0.1em 0.2em;
+        margin: 0 0.1em;
+        border-radius: 0.1em;
+        text-shadow: none;
+        background: #dcb;
+        color: #333;
+        line-height: 1.0;
+        font-family: var(--handwritten-font);
+    }
+    /* pre code is (block formatted) letters and posters */
+    pre code {
+        display: block;
+        padding: 2em 1.5em;
+        margin: 0.5em -0.5em;
+        background: #dcb;
+        color: black;
+        text-shadow: none;
+        white-space: pre-line;
+        font-size: 1.66em;
+        line-height: 1.0;
+        font-family: var(--letter-font);
+        box-shadow: inset 0 0 3em #864, inset 0 0 0.5em #420;
+    }
+    /* pre code.language-chant is a chant or child's rhyme */
+    pre code.language-chant {
+        text-shadow: 0 0 0.1em #dcb, 0 0 0.1em #dcb, 0 0 0.2em #dcb, 0 0 0.3em #dcb;
+        font-size: 1.2em;
+        font-family: var(--poster-font);
+        line-height: 1.2;
+        color: rgba(40,20,0, 0.66);
+    }
+    /* pre code.language-poster is a poster */
+    pre code.language-poster {
+        text-align: center;
+        text-shadow: 0 0 0.1em #dcb, 0 0 0.1em #dcb, 0 0 0.2em #dcb, 0 0 0.3em #dcb;
+        font-family: var(--poster-font);
+        line-height: 1.2;
+        color: rgba(40,20,0, 0.66);
+        position: relative;
+    }
+    pre code.language-poster:before {
+        transform: rotate(-0.5deg);
+        content: "";
+        position: absolute;
+        top: 1em;
+        left: 1em;
+        right: 1em;
+        bottom: 1em;
+        border: 0.25em double rgba(60,30,0, 0.1);
+    }
+    pre:has(code.language-poster) {
+        transform: rotate(1deg);
+    }
+    pre:has(code.language-poster):nth-child(even) {
+        transform: rotate(-1deg);
+    }
+    pre:has(code.language-poster):nth-child(3n) > code.language-poster:before {
+        transform: rotate(0.5deg);
+    }
+
+</style>
+
+<nav>
+    <a href="index.html">&#x2b39; Home</a>
+    <a href="acquisitions.html">&#x2a63; Acquisitions</a>
+</nav>
+<h1>Session 28</h1>
+<p>2026 10 04</p>
+<p>So we just read a note from a Vistani bigwig about how generous he feels about us saving his daughter, and we&#39;re heading across town to Henrik the Coffin Maker&#39;s house.</p>
+<p>On the way through town we get a sense of dissatisfaction from the townsfolk. The story of the Heroic Guard Captain who defeated evil Gastonivich is spreading.</p>
+<p>Henrik&#39;s shop is two stories tall, shuttered and silent. A coffin-shaped sign swings in the slight breeze.</p>
+<p>Banhammer bangs on the door.</p>
+<p>&quot;We&#39;re closed. Go away!&quot;</p>
+<p>Banhammer replies &quot;We can do this the easy way, or we&#39;ll have a bone to pick!&quot; He glances over his shoulder to make sure we all heard his attempt at a pun.</p>
+<p>He doesn&#39;t wait but immediately shoulder charges the door, smashing through it. We pile in through the door to find Henrik working behind his counter.</p>
+<p>&quot;Wh- what are you doing?&quot;</p>
+<p>Banhammer says that we don&#39;t have much time, but we&#39;re looking for the bones he recently came into possession of.</p>
+<p>Henrik immediately capitulates. &quot;Uh, alright. I only did it because Strahd threatened me. They&#39;re upstairs, along with a bunch of vampire spawn.&quot;</p>
+<p>Thalion grabs Henrik to force him ahead of us up the stairs, but he&#39;s clearly more afraid of the vampires than of us. Thalion punches him in the gut and he sinks to the floor.</p>
+<p>Banhammer charges into the door, through the kitchen and right up the stairs. We hurry to keep up with him. In a large room on the floor above, we find stacks of planks and a bunch of boxes marked <code>JUNK</code>.</p>
+<p>Banhammer raises his maul over the nearest box, and looks at the rest of us to see if this is what we want. Then he took a second to rush around and open all the window shutters.</p>
+<p>BH stays at the door to the big room, while the rest of us head through the kitchen to the bedroom. Charity pops open the bedroom door. It&#39;s normal, with well-crafted furniture. She rifles through the wardrobe and finds the secret compartment, with two sacks; one with bones, and the other with some money. Charity leaves H with his 12 electrum, taking 30 sp. She exits the room, shaking the bag of bones in quiet victory, and we sneak back down the stairs. We pass Henrik and leave, slightly surprised at how easily we&#39;ve gotten away.</p>
+<p>Travelling back through the town we notice again the weird energy of the townsfolk, a little positivity coming through from the idea that townsfolk can actually win sometimes against the forces of Strahd. We also get a sense of a version of the story that centres us rather than the captain.</p>
+<p>We arrive at the church and go looking for Fr Lucian. It&#39;s mid afternoon and he&#39;s setting up for afternoon mass -- expecting not many attendees but still hopeful.</p>
+<p>Charity marches up to Lucian and pulls out the sack of bones. He was hoping for this but is nevertheless incredibly relieved and immediately calls for Milivoj, who comes out of his room looking sheepish -- we understand that he&#39;s confessed while we were away. L hands the bones to M and tells him to get them to where they belong.</p>
+<p>We realise that the light in the church seems more wholesome and we&#39;re satisfied that the relics are already taking effect.</p>
+<p>We have a think about our current todo list. Luvash the Vistani is nearby so we decide to go visit.</p>
+<p>The Vistani camp is just outside the town, aside from the road. It&#39;s on the top of a treeless hill, surrounded by low houses, with a ring of caravans near the crown and a big tent in the middle. The space between the caravans and tent is filled with horses.</p>
+<p>Charity approaches the nearest house and it&#39;s guard. She greets him warmly, but he refers us to the tent on the hill. Charity realises that this guard, who is an odd looking Elf, isn&#39;t himself Vistani.</p>
+<p>Charity asks what&#39;s in the house he&#39;s guarding. He says it&#39;s important things. We decide not to spend much more time on this and start the short but difficult hike up the hill path.</p>
+<p>Outside the tent there are empty wineskins, and we hear the crack of a whip from inside and the wail of a man. We arrive at the ring of caravans; it&#39;s weirdly quiet here compared to the other Vistani camps we&#39;ve visited.</p>
+<p>Charity circles the wagons outside the horse zone (which is also the horse poop zone) passing a number of shuttered wagons and coming to a lively sounding one. Charity calls &quot;Hellooo the wagon!&quot;</p>
+<p>There&#39;s a bunch of thumping and rummaging and a Vistani guy emerges, half dressed and drunk, clutching a dagger. &quot;Who&#39;s that?&quot; he demands. Another guy stumbles out past the first guy, falls to the ground, calling drunkenly.</p>
+<p>&quot;We&#39;re looking for Luvash. Is he around?&quot;</p>
+<p>The guy who fell muddles to his feet and staggers around a bit. The other guy says we should head in to the tent, so we do. Inside the tent there are three sputtering campfires, a few Vistani lying around drunkenly, and a teenager tied to a post. A leather-clad Vistani is whipping him, another leather-clad V is advising the whip wielder to go easy on poor Alexi.</p>
+<p>Thalion pushes in and says &quot;Apologies for interrupting your fun, but we&#39;re looking for Luvash. Is he around?&quot;</p>
+<p>The whip wielder, who was startled when we walked in, seems to recognise us. &quot;Ah, you&#39;re the ones who saved Arabelle.&quot; He looks around. &quot;Let&#39;s talk outside.&quot;</p>
+<p>He checks in with the other guy as he leaves the tent, pulling us aside for a chat.</p>
+<p>&quot;I&#39;m Luvash, I&#39;m glad you came. I can&#39;t thank you enough for helping Arabel. Children get kidnapped in Borovia and we suspected the worst -- that maybe the hags had her. We sent people to the hags but only one returned, and he confirmed that the hags had not taken her.&quot;</p>
+<p>He steps into the wagon and comes out with an ornate jewellery box.</p>
+<hr>
+<p>An onyx jewelry box with gold filigree (worth 250 gp) containing six pieces of cheap jewelry (worth 50 gp each) and a potion of poison in an unlabeled crystal vial (worth 100 gp)</p>
+<hr>
+<blockquote>
+<p>Aryn acquires: onyx jewelry box with gold filigree (worth 250 gp)</p>
+</blockquote>
+<blockquote>
+<p>Aryn acquires: six pieces of jewelry (50 gp each)</p>
+</blockquote>
+<blockquote>
+<p>Aryn acquires: Potion of Poison in an unlabeled crystal vial (100 gp)</p>
+</blockquote>
+<p>Thalion describes how the fisherman who took A was under the control of Strahd, but we can tell that Luvash isn&#39;t ready to turn against S yet.</p>
+<p>Luvash proposes another task for us, if we want to gain another reward: to go and rout the hags from their base. He says he has valuable information about Strahd&#39;s origins that would help us. We&#39;re interested, and he describes where the hag coven is.</p>
+<p>Charity asks why this V camp isn&#39;t much like the others we&#39;ve encountered. L explains that this the camp in emergency mode, prepped for the search for the missing girl.</p>
+<p>He also tells us about the Dusk Elves, who&#39;s tragic backstory culminates in the race being forgotten and the survivors living in secret places like this. The Dusk Elves here in Borovia are all men, the women and children all having been murdered by Strahd.</p>
+<p>Charity asks what Alexi did to earn his punishment, and Thalion immediately correctly guesses that he was supposed to be looking after Arabel.</p>
+<p>We think that maybe we should go and do the hags before heading south, in case Luvash&#39;s testimony helps us there.</p>
+
+<!-- post session customisations -->
+<script>
+    document.querySelectorAll('h2').forEach( h2 => {
+        let matches = h2.innerText.match(/^\s*(202\d)\s+(\d\d?)\s+(\d\d?)/)
+        if (matches) {
+            let date = new Date(matches[1] + '-' + matches[2] + "-" + matches[3])
+            h2.innerText = date.toLocaleDateString(undefined, {
+                weekday: "long",
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            })
+        }
+    })
+</script></div>
+</body>
+</html>
